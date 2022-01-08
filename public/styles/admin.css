@@ -16,10 +16,13 @@
     font-size: 1.25rem;
 }
 
+.adminbtn {
+    text-align: center;
+}
+
 .adminSubmit {
     background-color: royalblue;
     padding: 10px;
-    text-align: center;
     border: none;
     border-radius: 10px;
     width: 50%;

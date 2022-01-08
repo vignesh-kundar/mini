@@ -19,26 +19,25 @@ create table if not exists CUSTOMER (
 
   --> Review
 
-  create table if not EXISTS REVIEW (
-  Review_id INteger Primary key,
-  Cust_id Integer,
-  Ratings Integer,
-  Comments varchar(100),
-  FOREIGN key (Cust_id) REFERENCES CUSTOMER (Cust_id) ON DELETE CASCADE CASCADE
-)
+ create table if not EXISTS REVIEW (
+        Review_id INteger Primary key,
+        Cust_id Integer,
+        Prdt_id Interger,
+        Ratings Integer,
+        Comments varchar(100),
+        FOREIGN KEY (Cust_id) REFERENCES CUSTOMER (Cust_id) ON DELETE CASCADE,
+        FOREIGN KEY (Prdt_id) REFERENCES PRODUCTS (Product_id) ON DELETE CASCADE )
 
 --> Products
 
 create table if not EXISTS PRODUCTS (
-	Product_id integer Primary key,
-    Product_name varchar(30),
-    Price smallmoney,
-    Stocks integer,
-    Type varchar(30),
-    Review_id integer,
-    Brand varchar(30),
-    FOREIGN KEY (Review_id) REFERENCES REVIEW (Review_id) ON DELETE CASCADE
-)
+        Product_id integer Primary key,
+        Product_name varchar(30),
+        Price smallmoney,
+        Stocks integer,
+        Type varchar(30),
+        Brand varchar(30),
+    )
 
 --> Orders
 

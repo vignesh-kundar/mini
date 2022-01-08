@@ -38,7 +38,11 @@ body::-webkit-scrollbar-thumb {
     margin: 10px 0;
 }
 
-.btn button {
+.btn a {
+    text-decoration: none;
+}
+
+.btn a button {
     padding: 10px;
     background-color: royalblue;
     border: none;

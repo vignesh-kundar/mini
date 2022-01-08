@@ -49,32 +49,32 @@ db.serialize(() => {
                 console.log("=> Shop created");
         })
 
-    db.run(`create table if not EXISTS REVIEW (
-        Review_id INteger Primary key,
-        Cust_id Integer,
-        Ratings Integer,
-        Comments varchar(100),
-        FOREIGN KEY (Cust_id) REFERENCES CUSTOMER (Cust_id) ON DELETE CASCADE
-      )`,
-        (err) => {
-            if (err) {
-                console.log("=> review created");
-            }
-        })
-
     db.run(`create table if not EXISTS PRODUCTS (
         Product_id integer Primary key,
         Product_name varchar(30),
         Price smallmoney,
         Stocks integer,
         Type varchar(30),
-        Review_id integer,
-        Brand varchar(30),
-        FOREIGN KEY (Review_id) REFERENCES REVIEW (Review_id) ON DELETE CASCADE
+        Brand varchar(30)
     )`, (err) => {
         if (!err)
-            console.error("=> Products created")
+            console.log("=> Products created")
     })
+
+    db.run(`create table if not EXISTS REVIEW (
+        Review_id Integer Primary key,
+        Cust_id Integer,
+        Prdt_id Interger,
+        Ratings Integer,
+        Comments varchar(100),
+        FOREIGN KEY (Cust_id) REFERENCES CUSTOMER (Cust_id) ON DELETE CASCADE,
+        FOREIGN KEY (Prdt_id) REFERENCES PRODUCTS (Product_id) ON DELETE CASCADE
+      )`,
+        (err) => {
+            if (!err) {
+                console.log("=> review created");
+            }
+        })
 
     db.run(`create table if not exists ORDERS (
         Order_id integer PRIMARY key,
@@ -159,6 +159,19 @@ app.post("/buy", (req, res) => {
 
 });
 
+//Product
+app.get("/product", (req, res) => {
+    res.render("product");
+})
+
+//buy now
+
+app.get("/buynow", (req, res) => {
+    res.render("buynow")
+})
+
+
+//buy
 app.get("/buy", (req, res) => {
     const list = [];
 
@@ -222,15 +235,15 @@ app.post("/review", (req, res) => {
 
 //ADMIN
 app.get('/admin', (req, res) => {
-    // res.render("admin");
-    res.render("dashboard");
+    res.render("admin");
+
 })
 
 app.post("/admin", (req, res) => {
 
     if (req.body.usrname != "admin")
         res.send('<script> alert("Invalid Username !!!") </script>');
-    else if (req.body.password != "pundiG")
+    else if (req.body.password != "123")
         res.send('<script> alert("Invalid Password !!!") </script>');
     else res.render("dashboard")
 })
@@ -253,8 +266,10 @@ app.post("/addProduct", (req, res) => {
     db.run(`insert into PRODUCTS values
     ($id ,$name ,$price ,$stocks,$type,$rev_id,$brand)`, product,
         (err) => {
-            if (err) res.redirect("/error");
-            else res.render("dashboard");
+            if (err) {
+                res.redirect("/error");
+                console.log(err);
+            } else res.render("home");
         })
 });
 
