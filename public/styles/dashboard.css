@@ -1,0 +1,147 @@
+.dashboardHead {
+    color: rgba(255, 255, 255, 0.496);
+    margin: 20px 40px;
+}
+
+.dashboardContainer {
+    margin: 20px 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.dashboardContainer .dashsidepanel {
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba(106, 143, 253, 0.177);
+    padding: 10px;
+    margin: 30px 40px;
+    border-radius: 10px;
+}
+
+.dashsidepanel h4 {
+    font-weight: 750;
+    color: #fff;
+    padding: 20px;
+}
+
+.dashsidepanel li {
+    list-style: none;
+    color: golden;
+    margin-top: 10px;
+    padding: 20px 0;
+}
+
+.dashsidepanel li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.dashhr {
+    border: solid 3px rgba(253, 253, 253, 0.435);
+    border-style: none none solid;
+    width: 60vw;
+    margin: 0 auto;
+    margin: 20px auto;
+}
+
+
+/* INSERT DIV */
+
+.insertContainer {
+    height: fit-content;
+    width: fit-content;
+    border: solid 3px royalblue;
+    border-radius: 10px;
+    margin: 30px 0;
+    margin-left: 40px;
+}
+
+.insert-name {
+    color: #fff;
+    margin: 40px;
+}
+
+.insert-input {
+    margin: 10px;
+}
+
+.insertContainer .insertlist li {
+    list-style-type: none;
+}
+
+.insertContainer .insertlist li input {
+    border: none;
+    border-bottom: 2px solid grey;
+    background-color: transparent;
+    width: 20vw;
+    height: 40px;
+    color: #fff;
+    outline: none;
+    margin: 10px auto;
+    font-size: 1.25rem;
+    margin-right: 50px;
+}
+
+.insert-submit {
+    background-color: royalblue;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    color: #fff;
+    font-size: 1rem;
+    margin: 30px auto;
+    text-align: center;
+}
+
+
+/* View only */
+
+.viewonly-container {
+    text-align: center;
+}
+
+.view-data {
+    border: 3px solid royalblue;
+    width: fit-content;
+    border-radius: 10px;
+    margin: 40px auto;
+    padding-bottom: 20px;
+}
+
+.data-table tr {
+    color: #fff;
+    margin: 40px;
+}
+
+.data-table tr th {
+    padding: 30px;
+    border-bottom: 1px solid #fff;
+    background-color: rgba(65, 105, 225, 0.299);
+}
+
+.data-table tr td {
+    padding: 10px;
+    padding-bottom: 10px;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.068);
+    border-radius: 10px;
+}
+
+.view-data h2 {
+    color: #fff;
+    margin: 20px;
+}
+
+.visits-contains {
+    display: flex;
+    justify-content: center;
+}
+
+.visits,
+.contains {
+    margin: 30px 30px;
+}

@@ -34,7 +34,7 @@ db.serialize(() => {
 
         (err) => {
             if (!err)
-                console.log("\n---\n=> Customer created\n");
+                console.log("\n---\n=> Customer created");
         })
 
     db.run(`create table if not exists SHOP (
@@ -46,7 +46,7 @@ db.serialize(() => {
 
         (err) => {
             if (!err)
-                console.log("=> Shop created\n");
+                console.log("=> Shop created");
         })
 
     db.run(`create table if not EXISTS REVIEW (
@@ -58,7 +58,7 @@ db.serialize(() => {
       )`,
         (err) => {
             if (err) {
-                console.log("=> review created\n");
+                console.log("=> review created");
             }
         })
 
@@ -67,12 +67,13 @@ db.serialize(() => {
         Product_name varchar(30),
         Price smallmoney,
         Stocks integer,
+        Type varchar(30),
         Review_id integer,
         Brand varchar(30),
         FOREIGN KEY (Review_id) REFERENCES REVIEW (Review_id) ON DELETE CASCADE
     )`, (err) => {
         if (!err)
-            console.error("=> Products created\n")
+            console.error("=> Products created")
     })
 
     db.run(`create table if not exists ORDERS (
@@ -84,7 +85,7 @@ db.serialize(() => {
         FOREIGN KEY (Cust_id) REFERENCES CUSTOMER (Cust_id) ON DELETE CASCADE,
         FOREIGN KEY (Shop_id) REFERENCES SHOP (Shop_id) ON DELETE CASCADE,
         FOREIGN KEY (Product_id) REFERENCES PRODUCTS (Product_id) ON DELETE CASCADE
-      )`, (err) => { if (!err) console.log("=> orders created\n") })
+      )`, (err) => { if (!err) console.log("=> orders created") })
 
     db.run(`create table if not EXISTS VISITS (
         Cust_id integer,
@@ -92,7 +93,7 @@ db.serialize(() => {
         primary key (Cust_id , Shop_id),
         FOREIGN KEY (Cust_id) REFERENCES CUSTOMER (Cust_id) ON DELETE CASCADE,
         FOREIGN KEY (Shop_id) REFERENCES SHOP (Shop_id) ON DELETE CASCADE
-      )`, (err) => { if (!err) console.log("=> visits created\n") })
+      )`, (err) => { if (!err) console.log("=> visits created") })
 
     db.run(`create table if not EXISTS CONTAINS (
         Product_id integer,
@@ -100,7 +101,7 @@ db.serialize(() => {
         primary key (Product_id , Order_id),
         FOREIGN KEY (Product_id) REFERENCES PRODUCTS (Product_id) ON DELETE CASCADE,
         FOREIGN KEY (Order_id) REFERENCES ORDERS (Order_id) ON DELETE CASCADE
-      )`, (err) => { if (!err) console.log("=> contains created\n") })
+      )`, (err) => { if (!err) console.log("=> contains created") })
 
     db.run(`create table if not EXISTS READ_REVIEW (
         Review_id integer,
@@ -123,8 +124,7 @@ db.serialize(() => {
 
 // HOME ROUTE 
 app.get("/", (req, res) => {
-    //res.send('Kya Be Mulle!!');
-
+    res.render('home');
 })
 
 app.post("/", (req, res) => {
@@ -133,7 +133,7 @@ app.post("/", (req, res) => {
 
 })
 
-//BUY Page Load
+//BUY Page
 
 app.post("/buy", (req, res) => {
 
@@ -157,9 +157,10 @@ app.post("/buy", (req, res) => {
     })
 
 
-})
-const list = [];
+});
+
 app.get("/buy", (req, res) => {
+    const list = [];
 
     db.all(`select * from CUSTOMER`,
         (err, rows) => {
@@ -183,6 +184,20 @@ app.get("/buy", (req, res) => {
 
 });
 
+//search
+app.get('/search', (req, res) => {
+
+    res.render('search');
+})
+
+app.post('/search', (req, res) => {
+
+    const searchItem = req.body.searchTxt;
+    res.send(searchItem);
+})
+
+
+
 //Review 
 
 app.post("/review", (req, res) => {
@@ -205,21 +220,22 @@ app.post("/review", (req, res) => {
 })
 
 
+//ADMIN
+app.get('/admin', (req, res) => {
+    // res.render("admin");
+    res.render("dashboard");
+})
 
 app.post("/admin", (req, res) => {
 
     if (req.body.usrname != "admin")
-        res.send("Invalid Username !!!");
-    else if (req.body.password != "angadi")
-        res.send("Invalid password!!!");
-    else res.send("\n-:Welcome angadi owner:-\n");
+        res.send('<script> alert("Invalid Username !!!") </script>');
+    else if (req.body.password != "pundiG")
+        res.send('<script> alert("Invalid Password !!!") </script>');
+    else res.render("dashboard")
 })
 
-// SERVER CREATION
-app.listen(3000, (req, res) => {
-    console.log('== i love you 3000  ==\n-- Server Started --')
-})
-
+//addProduct
 app.post("/addProduct", (req, res) => {
 
     product = {
@@ -227,16 +243,53 @@ app.post("/addProduct", (req, res) => {
         $name: req.body.name,
         $price: req.body.price,
         $stocks: req.body.stocks,
+        $type: req.body.type,
         $rev_id: req.body.rev_id,
         $brand: req.body.brand
     }
 
-    res.send(JSON.stringify(product));
+    // res.send(JSON.stringify(product));
 
     db.run(`insert into PRODUCTS values
-    ($id ,$name ,$price ,$stocks,$rev_id,$brand)`, product,
+    ($id ,$name ,$price ,$stocks,$type,$rev_id,$brand)`, product,
         (err) => {
-            if (err) console.log(err)
-            else console.log("added item to the products table !!")
+            if (err) res.redirect("/error");
+            else res.render("dashboard");
         })
+});
+
+//addShop
+app.post("/addShop", (req, res) => {
+    shop = {
+        $id: req.body.id,
+        $name: req.body.name,
+        $loc: req.body.loc,
+        $phone: req.body.phone,
+        $email: req.body.email
+    }
+
+    // res.send(JSON.stringify(shop));
+
+    db.run(`insert into SHOP values
+    ($id ,$name ,$loc ,$phone ,$email)`, shop,
+        (err) => {
+            if (err) res.redirect('/error');
+            else console.log("added item to the shop table !!")
+        })
+
+})
+
+//ABOUT US
+
+app.get('/about', (req, res) => {
+    res.render('about')
+});
+
+app.get('/error', (req, res) => {
+    res.render("error");
+})
+
+// SERVER CREATION
+app.listen(3000, (req, res) => {
+    console.log('== i love you 3000  ==\n-- Server Started --')
 })

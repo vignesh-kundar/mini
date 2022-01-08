@@ -1,0 +1,51 @@
+    * {
+        font-family: "poppins";
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background-color: #171717;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        /* Hide horizontal scrollbar */
+    }
+    
+    .Nav .brand {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    
+    .Nav {
+        background: royalblue;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px;
+        height: 90px;
+        align-items: center;
+        margin: 10px;
+        border-radius: 5px;
+    }
+    
+    .Nav ul li {
+        cursor: pointer;
+        font-size: 0.85rem;
+        margin-right: 30px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        list-style: none;
+        display: inline;
+    }
+    
+    .Nav ul li:last-child {
+        margin-right: 20px;
+    }
+    
+    .Nav ul li a {
+        text-decoration: none;
+        color: #fff;
+    }

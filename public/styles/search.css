@@ -1,0 +1,26 @@
+.search-container {
+    position: relative;
+    text-align: center;
+}
+
+.search-container .search-input {
+    border: none;
+    border-bottom: 2px solid grey;
+    background-color: #171717;
+    width: 70vw;
+    height: 40px;
+    color: #fff;
+    outline: none;
+    margin: 40px auto;
+    font-size: 1.25rem;
+}
+
+.search-input:focus {
+    color: #fff;
+    font-weight: 300;
+}
+
+.search-btn {
+    background-color: transparent;
+    border: none;
+}

@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+
+
+    <div class="adminContainer">
+        <form action="/admin" method="post">
+
+            <div class="adminmargin">
+                <input type="text" autocomplete="off" placeholder="Username" name="usrname" required>
+            </div>
+
+            <div class="adminmargin">
+                <input type="password" autocomplete="off" placeholder="Password" name="password" required>
+            </div>
+
+            <div class="adminbtn">
+                <button type="submit" class="adminSubmit">Login</button>
+            </div>
+
+        </form>
+
+    </div>
+    <%- include('partials/footer') %>

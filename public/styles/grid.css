@@ -1,0 +1,54 @@
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #171717;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: royalblue;
+    border-radius: 20px;
+}
+
+.box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 15rem);
+    justify-content: center;
+}
+
+.box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 17rem);
+    justify-content: center;
+}
+
+.box .card-container {
+    margin: 20px 20px;
+}
+
+.card-container .card {
+    height: 15rem;
+    background-color: rgba(65, 105, 225, 0.347);
+    border-radius: 10px;
+}
+
+.card-container .btn {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.btn button {
+    padding: 10px;
+    background-color: royalblue;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+.productName {
+    color: #fff;
+    margin: 5px;
+    text-align: center;
+}

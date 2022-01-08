@@ -1,0 +1,258 @@
+<%- include('partials/header') %>
+
+    <h3 class="dashboardHead">Welcome to dashboard!!!</h3>
+    <hr class="dashhr">
+
+
+
+    <div class="dashboardContainer">
+
+        <div class="dashsidepanel">
+            <h4>Click to insert data!</h4>
+
+            <ul>
+                <li><a class="" href="#shop-div"> Add Shop</a></li>
+                <li><a href="#product-div"> Add Products</a></li>
+
+            </ul>
+            <h4>Click to view data!</h4>
+            <ul>
+                <li><a href="#orders"> View Orders</a></li>
+                <li><a href="#visits"> View Visits</a></li>
+                <li><a href="#contains"> View Contains</a></li>
+                <li><a href="#shops"> View Shop</a></li>
+                <li><a href="#products"> View Product</a></li>
+            </ul>
+
+        </div>
+
+
+
+        <div class="insertContainer" id="shop-div">
+            <h2 class="insert-name">insert new Shop</h2>
+
+            <form action="/addShop" method="post">
+
+                <ul class="insertlist">
+                    <li class="insert-li"> <input placeholder="Shop id" name="id" type="text" class="insert-input"> </li>
+                    <li class="insert-li"> <input placeholder="Shop name" name="name" type="text" class="insert-input"> </li>
+                    <li class="insert-li"> <input placeholder="Shop loc" name="loc" type="text" class="insert-input"> </li>
+                    <li class="insert-li"> <input placeholder="Shop phone" name="phone" type="text" class="insert-input"> </li>
+                    <li class="insert-li"> <input placeholder="Shop email" name="email" type="text" class="insert-input"> </li>
+                </ul>
+                <div class="insert-btn-div">
+                    <button class="insert-submit" type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="insertContainer" id="product-div">
+            <h2 class="insert-name">insert new Product</h2>
+
+            <form action="/addProduct" method="post">
+
+                <ul class="insertlist">
+                    <li class="insert-li"><input placeholder="Product id" name="id" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input placeholder="Product name" name="name" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input placeholder="Product price" name="price" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input placeholder="Product stocks" name="type" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input placeholder="Product type" name="rev_id" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input placeholder="Review id" name="brand" type="text" class="insert-input"> </li>
+                </ul>
+                <div class="insert-btn-div">
+                    <button class="insert-submit" type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+
+    <hr class="dashhr">
+
+    <div class="viewonly-container">
+        <!-- ORDERS -->
+        <div class="view-data orders" id="orders">
+            <h2>Orders data</h2>
+            <table class="data-table">
+                <tr>
+                    <th>Order id</th>
+                    <th>Cust id</th>
+                    <th>Shop id</th>
+                    <th>Product id</th>
+                    <th>Order date</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>22-33-4444</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>22-33-4444</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>22-33-4444</td>
+                </tr>
+            </table>
+
+        </div>
+        <!-- SHOP -->
+        <div class="view-data shop" id="shops">
+            <h2>Shop data</h2>
+            <table class="data-table">
+                <tr>
+                    <th>Shop id</th>
+                    <th>Shop name</th>
+                    <th>Shop loc</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>Mangalore</td>
+                    <td>123456789</td>
+                    <td>vigneshkundar125@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>Mangalore</td>
+                    <td>123456789</td>
+                    <td>vigneshkundar125@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>Mangalore</td>
+                    <td>123456789</td>
+                    <td>vigneshkundar125@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>Mangalore</td>
+                    <td>123456789</td>
+                    <td>vigneshkundar125@gmail.com</td>
+                </tr>
+            </table>
+
+        </div>
+        <!-- PRODUCTS -->
+        <div class="view-data products" id="products">
+            <h2>Product data</h2>
+            <table class="data-table">
+                <tr>
+                    <th>Product id</th>
+                    <th>Product name</th>
+                    <th>Price(Rs)</th>
+                    <th>Stocks</th>
+                    <th>Type</th>
+                    <th>Review id</th>
+                    <th>Brand</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Clinic plus</td>
+                    <td>30</td>
+                    <td>15</td>
+                    <td>Shampoo</td>
+                    <td>4</td>
+                    <td>uniliver</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Clinic plus</td>
+                    <td>30</td>
+                    <td>15</td>
+                    <td>Shampoo</td>
+                    <td>4</td>
+                    <td>uniliver</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Clinic plus</td>
+                    <td>30</td>
+                    <td>15</td>
+                    <td>Shampoo</td>
+                    <td>4</td>
+                    <td>uniliver</td>
+                </tr>
+
+            </table>
+
+        </div>
+        <!-- VISITS-CONTAINS -->
+        <div class="visits-contains">
+            <!-- VISITS -->
+            <div class="view-data visits" id="visits">
+                <h2>Visits data</h2>
+                <table class="data-table">
+                    <tr>
+                        <th>Cust id</th>
+                        <th>Shop id</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                </table>
+            </div>
+            <!-- CONTAINS -->
+            <div class="view-data contains" id="contains">
+                <h2>Contains data</h2>
+                <table class="data-table">
+                    <tr>
+                        <th>Product id</th>
+                        <th>Order id</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    </div>
+
+    <div class="dashboard-up">
+
+    </div>
+
+
+    <%- include('partials/footer') %>

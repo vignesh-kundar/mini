@@ -1,0 +1,33 @@
+.aboutContainer {
+    color: #fff;
+    margin: 50px;
+}
+
+.aboutBox {
+    margin: 50px;
+}
+
+.about-content {
+    /* background-color: violet; */
+    width: fit-content;
+    margin: 50px 10px;
+}
+
+.about-content h3 {
+    margin: 20px 0;
+}
+
+.aboutContainer hr {
+    border: solid 3px royalblue;
+    border-style: none none solid;
+    width: 50vw;
+    margin: 0 auto;
+}
+
+.aboutBox h2 {
+    cursor: crosshair;
+}
+
+.containerR {
+    float: right;
+}

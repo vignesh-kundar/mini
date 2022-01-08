@@ -1,0 +1,32 @@
+.adminContainer {
+    display: flex;
+    justify-content: center;
+    margin: 17vh 0;
+}
+
+.adminmargin input {
+    border: none;
+    border-bottom: 2px solid grey;
+    background-color: #171717;
+    width: 30vw;
+    height: 40px;
+    color: #fff;
+    outline: none;
+    margin: 40px auto;
+    font-size: 1.25rem;
+}
+
+.adminSubmit {
+    background-color: royalblue;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.insert-btn-div {
+    text-align: center;
+}

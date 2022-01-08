@@ -34,6 +34,7 @@ create table if not EXISTS PRODUCTS (
     Product_name varchar(30),
     Price smallmoney,
     Stocks integer,
+    Type varchar(30),
     Review_id integer,
     Brand varchar(30),
     FOREIGN KEY (Review_id) REFERENCES REVIEW (Review_id) ON DELETE CASCADE
