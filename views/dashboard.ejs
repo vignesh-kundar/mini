@@ -1,6 +1,6 @@
 <%- include('partials/header') %>
 
-    <h3 class="dashboardHead">Welcome to dashboard!!!</h3>
+    <h3 class="dashboardHead">Welcome Admin !!!</h3>
     <hr class="dashhr">
 
 
@@ -8,14 +8,14 @@
     <div class="dashboardContainer">
 
         <div class="dashsidepanel">
-            <h4>Click to insert data!</h4>
+            <h4>Click to Insert Data!</h4>
 
             <ul>
                 <li><a class="" href="#shop-div"> Add Shop</a></li>
                 <li><a href="#product-div"> Add Products</a></li>
 
             </ul>
-            <h4>Click to view data!</h4>
+            <h4>Click to View Data!</h4>
             <ul>
                 <li><a href="#shops"> View Shop</a></li>
                 <li><a href="#products"> View Product</a></li>
@@ -30,7 +30,7 @@
 
 
         <div class="insertContainer" id="shop-div">
-            <h2 class="insert-name">insert new Shop</h2>
+            <h2 class="insert-name">Insert new Shop</h2>
 
             <form action="/addShop" method="post">
 
@@ -49,7 +49,7 @@
         </div>
 
         <div class="insertContainer" id="product-div">
-            <h2 class="insert-name">insert new Product</h2>
+            <h2 class="insert-name">Insert new Product</h2>
 
             <form action="/addProduct" method="post">
 
@@ -57,9 +57,9 @@
                     <li class="insert-li"><input placeholder="Product id" name="id" type="text" class="insert-input"> </li>
                     <li class="insert-li"><input placeholder="Product name" name="name" type="text" class="insert-input"> </li>
                     <li class="insert-li"><input placeholder="Product price" name="price" type="text" class="insert-input"> </li>
-                    <li class="insert-li"><input placeholder="Product stocks" name="type" type="text" class="insert-input"> </li>
-                    <li class="insert-li"><input placeholder="Product type" name="rev_id" type="text" class="insert-input"> </li>
-                    <li class="insert-li"><input placeholder="Review id" name="brand" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input placeholder="Product type" name="type" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input placeholder="Stocks" name="stocks" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input placeholder="Brand" name="brand" type="text" class="insert-input"> </li>
                 </ul>
                 <div class="insert-btn-div">
                     <button class="insert-submit" type="submit">Submit</button>
@@ -252,7 +252,7 @@
     </div>
 
     <div class="dashboard-up">
-
+        <a href="#nav"> <i class="dashboard-up-icon fas fa-caret-up"></i> </a>
     </div>
 
 

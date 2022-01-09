@@ -49,6 +49,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 5px;
     font-weight: bold;
     color: white;
+    cursor: pointer;
 }
 
 .productName {

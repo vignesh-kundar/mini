@@ -145,3 +145,33 @@
 .contains {
     margin: 30px 30px;
 }
+
+
+/* DASHBOARD UP */
+
+.dashboard-up {
+    background-color: rgba(65, 105, 225, 0.204);
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    border-radius: 100%;
+    text-align: center;
+    display: none;
+    transition: all 1s
+}
+
+.dashboard-up-icon {
+    color: #fff;
+    font-size: 30px;
+    margin-top: 8px;
+}
+
+
+/* HOVER PROPERTY */
+
+.viewonly-container:hover+.dashboard-up,
+.dashboard-up:hover {
+    display: block;
+}

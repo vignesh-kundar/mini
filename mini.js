@@ -257,19 +257,18 @@ app.post("/addProduct", (req, res) => {
         $price: req.body.price,
         $stocks: req.body.stocks,
         $type: req.body.type,
-        $rev_id: req.body.rev_id,
         $brand: req.body.brand
     }
 
     // res.send(JSON.stringify(product));
 
     db.run(`insert into PRODUCTS values
-    ($id ,$name ,$price ,$stocks,$type,$rev_id,$brand)`, product,
+    ($id ,$name ,$price ,$stocks,$type,$brand)`, product,
         (err) => {
             if (err) {
                 res.redirect("/error");
                 console.log(err);
-            } else res.render("home");
+            } else res.render("dashboard");
         })
 });
 
@@ -289,7 +288,7 @@ app.post("/addShop", (req, res) => {
     ($id ,$name ,$loc ,$phone ,$email)`, shop,
         (err) => {
             if (err) res.redirect('/error');
-            else console.log("added item to the shop table !!")
+            else res.render("dashboard");
         })
 
 })
