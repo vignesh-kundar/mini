@@ -50,12 +50,16 @@ db.serialize(() => {
         })
 
     db.run(`create table if not EXISTS PRODUCTS (
-        Product_id integer Primary key,
+        Product_id integer,
+        Shop_id integer,
         Product_name varchar(30),
         Price smallmoney,
         Stocks integer,
         Type varchar(30),
-        Brand varchar(30)
+        Brand varchar(30),
+        Primary key (Product_id , Shop_id ),
+        FOREIGN KEY (Shop_id) REFERENCES SHOP (Shop_id) ON DELETE CASCADE
+
     )`, (err) => {
         if (!err)
             console.log("=> Products created")
@@ -66,7 +70,7 @@ db.serialize(() => {
         Cust_id Integer,
         Prdt_id Interger,
         Ratings Integer,
-        Comments varchar(100),
+        Comments varchar(1000),
         FOREIGN KEY (Cust_id) REFERENCES CUSTOMER (Cust_id) ON DELETE CASCADE,
         FOREIGN KEY (Prdt_id) REFERENCES PRODUCTS (Product_id) ON DELETE CASCADE
       )`,
@@ -135,7 +139,11 @@ app.post("/", (req, res) => {
 
 //BUY Page
 
-app.post("/buy", (req, res) => {
+app.get("/buynow", (req, res) => {
+    res.render('buynow');
+})
+
+app.post("/buynow", (req, res) => {
 
 
     var cust = {
@@ -219,13 +227,14 @@ app.post("/review", (req, res) => {
         $id: req.body.id,
         $cust_id: req.body.cust_id,
         $rating: req.body.rating,
+        $prdt_id: req.body.prdt_id,
         $comment: req.body.comment
     }
 
     //res.send(JSON.stringify(rev));
 
     db.run(`insert into REVIEW values
-    ($id ,$cust_id ,$rating ,$comment)`, rev, (err) => {
+    ($id ,$cust_id ,$prdt_id,$rating ,$comment)`, rev, (err) => {
         if (err) res.send(err);
         else res.send("Added Review\nWith review id " + rev.$id);
     })
@@ -253,6 +262,7 @@ app.post("/addProduct", (req, res) => {
 
     product = {
         $id: req.body.id,
+        $shop_id: req.body.shopId,
         $name: req.body.name,
         $price: req.body.price,
         $stocks: req.body.stocks,
@@ -263,7 +273,7 @@ app.post("/addProduct", (req, res) => {
     // res.send(JSON.stringify(product));
 
     db.run(`insert into PRODUCTS values
-    ($id ,$name ,$price ,$stocks,$type,$brand)`, product,
+    ($id,$shop_id ,$name ,$price ,$stocks,$type,$brand)`, product,
         (err) => {
             if (err) {
                 res.redirect("/error");

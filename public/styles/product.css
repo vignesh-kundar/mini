@@ -21,7 +21,7 @@
     justify-content: flex-start;
 }
 
-.product-btn-div .product-btn {
+.product-btn {
     padding: 15px;
     border: none;
     border-radius: 5px;
@@ -30,6 +30,12 @@
     background-color: royalblue;
     color: #fff;
     font-weight: 600;
+}
+
+.product-btn a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
 }
 
 .product-img-price {

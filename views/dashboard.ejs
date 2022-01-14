@@ -27,19 +27,17 @@
 
         </div>
 
-
-
         <div class="insertContainer" id="shop-div">
             <h2 class="insert-name">Insert new Shop</h2>
 
             <form action="/addShop" method="post">
 
                 <ul class="insertlist">
-                    <li class="insert-li"> <input placeholder="Shop id" name="id" type="text" class="insert-input"> </li>
-                    <li class="insert-li"> <input placeholder="Shop name" name="name" type="text" class="insert-input"> </li>
-                    <li class="insert-li"> <input placeholder="Shop loc" name="loc" type="text" class="insert-input"> </li>
-                    <li class="insert-li"> <input placeholder="Shop phone" name="phone" type="text" class="insert-input"> </li>
-                    <li class="insert-li"> <input placeholder="Shop email" name="email" type="text" class="insert-input"> </li>
+                    <li class="insert-li"> <input required placeholder="Shop id" name="id" type="text" class="insert-input"> </li>
+                    <li class="insert-li"> <input required placeholder="Shop name" name="name" type="text" class="insert-input"> </li>
+                    <li class="insert-li"> <input required placeholder="Shop loc" name="loc" type="text" class="insert-input"> </li>
+                    <li class="insert-li"> <input required placeholder="Shop phone" name="phone" type="text" class="insert-input"> </li>
+                    <li class="insert-li"> <input required placeholder="Shop email" name="email" type="text" class="insert-input"> </li>
                 </ul>
                 <div class="insert-btn-div">
                     <button class="insert-submit" type="submit">Submit</button>
@@ -54,12 +52,13 @@
             <form action="/addProduct" method="post">
 
                 <ul class="insertlist">
-                    <li class="insert-li"><input placeholder="Product id" name="id" type="text" class="insert-input"> </li>
-                    <li class="insert-li"><input placeholder="Product name" name="name" type="text" class="insert-input"> </li>
-                    <li class="insert-li"><input placeholder="Product price" name="price" type="text" class="insert-input"> </li>
-                    <li class="insert-li"><input placeholder="Product type" name="type" type="text" class="insert-input"> </li>
-                    <li class="insert-li"><input placeholder="Stocks" name="stocks" type="text" class="insert-input"> </li>
-                    <li class="insert-li"><input placeholder="Brand" name="brand" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input required placeholder="Product id" name="id" type="number" class="insert-input"> </li>
+                    <li class="insert-li"><input required placeholder="Shop id" name="shopId" type="number" class="insert-input"> </li>
+                    <li class="insert-li"><input required placeholder="Product name" name="name" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input required placeholder="Product price" name="price" type="number" class="insert-input"> </li>
+                    <li class="insert-li"><input required placeholder="Product type" name="type" type="text" class="insert-input"> </li>
+                    <li class="insert-li"><input required placeholder="Stocks" name="stocks" type="number" class="insert-input"> </li>
+                    <li class="insert-li"><input required placeholder="Brand" name="brand" type="text" class="insert-input"> </li>
                 </ul>
                 <div class="insert-btn-div">
                     <button class="insert-submit" type="submit">Submit</button>
@@ -157,6 +156,7 @@
             <table class="data-table">
                 <tr>
                     <th>Product id</th>
+                    <th>Shop id</th>
                     <th>Product name</th>
                     <th>Price(Rs)</th>
                     <th>Stocks</th>
@@ -166,14 +166,6 @@
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>Clinic plus</td>
-                    <td>30</td>
-                    <td>15</td>
-                    <td>Shampoo</td>
-                    <td>4</td>
-                    <td>uniliver</td>
-                </tr>
-                <tr>
                     <td>1</td>
                     <td>Clinic plus</td>
                     <td>30</td>
@@ -183,6 +175,17 @@
                     <td>uniliver</td>
                 </tr>
                 <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>Clinic plus</td>
+                    <td>30</td>
+                    <td>15</td>
+                    <td>Shampoo</td>
+                    <td>4</td>
+                    <td>uniliver</td>
+                </tr>
+                <tr>
+                    <td>1</td>
                     <td>1</td>
                     <td>Clinic plus</td>
                     <td>30</td>

@@ -9,7 +9,7 @@
     justify-content: flex-start;
 }
 
-.dashboardContainer .dashsidepanel {
+.dashsidepanel {
     height: fit-content;
     width: fit-content;
     background-color: rgba(106, 143, 253, 0.177);
@@ -54,6 +54,7 @@
     border-radius: 10px;
     margin: 30px 0;
     margin-left: 40px;
+    position: relative;
 }
 
 .insert-name {
@@ -93,6 +94,7 @@
     font-size: 1rem;
     margin: 30px auto;
     text-align: center;
+    cursor: pointer;
 }
 
 

@@ -1,9 +1,74 @@
 <%- include('partials/header')%>
+    <div class="buy-head">
+        <h3 class="buy-head-data">Product Name</h3>
+        <h3 class="buy-head-data"><span>Today</span>22-55-1100</h3>
+    </div>
+
+
 
     <div class="buy-container">
+        <div class="buy-container-insert">
+            <p>Enter your details!!</p>
+            <form action="/buynow" method="post">
+                <ul>
+                    <li> <input type="number" name="id" placeholder="Customer id" class="buy-container-input"></li>
+                    <li> <input type="text" name="name" placeholder="Name" class="buy-container-input"></li>
+                    <li> <input type="text" name="address" placeholder="Address" class="buy-container-input"></li>
+                    <li> <input type="text" name="city" placeholder="City" class="buy-container-input"></li>
+                    <li> <input type="number" name="phone" placeholder="Phone" class="buy-container-input"></li>
+                    <li> <input type="mail" name="email" placeholder="Email" class="buy-container-input"></li>
+                </ul>
+                <div class="insert-btn-div">
+                    <button class="insert-submit" type="submit">Place Order</button>
+                </div>
+            </form>
 
 
+        </div>
+
+        <div class="buy-container-img">
+
+            <div class="buy-container-img-div">
+
+            </div>
+
+            <div class="buy-container-img-btn">
+                <h3 class="white buyImgBtnTxt">Already a Customer ?</h3>
+                <h3 class="white buyImgBtnTxt">Add review</h3>
+                <button class="insert-submit" id="showRev" type="submit">Add Review</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="buy-review-container" id="buy-rev">
+
+        <div class="buy-review-insert">
+            <form action="/review" method="post">
+                <h3 class="white review-head">Add Review</h3>
+
+                <ul>
+                    <li><input type="number" class="buy-container-input" placeholder="Review Id" name="id"></li>
+                    <li><input type="number" class="buy-container-input" placeholder="Customer Id" name="cust_idd"></li>
+                    <li><input type="number" class="buy-container-input" placeholder="Product Id" name="prdt_id"></li>
+                    <li><input type="number" class="buy-container-input" placeholder="Ratings [10 Max]" name="rating"></li>
+                    <li><textarea name="comment" placeholder="Comment"></textarea></li>
+                </ul>
+
+                <div class="insert-btn-div">
+                    <button class="insert-submit" type="submit">Add Review</button>
+                </div>
+
+            </form>
+
+        </div>
 
     </div>
+
+    <script>
+        document.getElementById('showRev').onclick = function() {
+            document.getElementById('buy-rev').classList.toggle('addDisplay');
+        }
+    </script>
 
     <%- include('partials/footer')%>

@@ -1,0 +1,108 @@
+    .buy-container {
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    .buy-head {
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .buy-head-data {
+        margin: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .buy-head-data span {
+        padding: 0 20px;
+        color: royalblue;
+    }
+    /* BUY-INSERT */
+    
+    .buy-container-insert {
+        border: 2.5px solid royalblue;
+        border-radius: 10px;
+        width: fit-content;
+        margin: 40px;
+        margin-left: 10%;
+        margin-top: 10px;
+    }
+    
+    .buy-container-insert p {
+        color: #fff;
+        margin: 10px;
+        margin-left: 40px;
+    }
+    
+    .buy-container-input {
+        border: none;
+        border-bottom: 2px solid grey;
+        background-color: transparent;
+        width: 20vw;
+        height: 40px;
+        color: #fff;
+        outline: none;
+        margin: 25px auto;
+        font-size: 1.25rem;
+        margin-right: 50px;
+    }
+    
+    .buy-container ul li,
+    .buy-review-insert ul li {
+        list-style-type: none;
+    }
+    /* IMAGE DIV */
+    
+    .buy-container-img {
+        margin-left: 15%;
+    }
+    
+    .buy-container-img-div {
+        height: 500px;
+        width: 500px;
+        background-color: rgba(65, 105, 225, 0.285);
+        border-radius: 10px;
+    }
+    
+    .buy-container-img-btn {
+        text-align: center;
+    }
+    
+    .buyImgBtnTxt {
+        margin-top: 15px;
+    }
+    /* REVIEW */
+    
+    .buy-review-container {
+        display: none;
+        justify-content: center;
+        margin: 20px;
+    }
+    
+    .buy-review-insert {
+        border: 3px solid royalblue;
+        border-radius: 10px;
+        width: fit-content;
+        height: fit-content;
+    }
+    
+    .review-head {
+        margin: 40px;
+    }
+    
+    .buy-review-insert ul li textarea {
+        width: 30vw;
+        height: 20vh;
+        background-color: rgba(65, 105, 225, 0.149);
+        border-radius: 10px;
+        color: #fff;
+        font-size: 20px;
+        margin: 20px 40px 10px 0;
+        border: none;
+        padding: 10px;
+    }
+    
+    .addDisplay {
+        display: flex;
+    }
