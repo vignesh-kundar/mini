@@ -8,6 +8,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 
+
 // CONNECT TO DB 
 const db = new sqlite.Database('./SHOP-DB', (err) => {
     if (!err) {
@@ -16,6 +17,7 @@ const db = new sqlite.Database('./SHOP-DB', (err) => {
 });
 
 // SERIAL EXECUTION => Table creation
+
 db.serialize(() => {
     //setting foreign key 
     db.exec("PRAGMA foreign_keys = ON", (err) => {
@@ -116,229 +118,47 @@ db.serialize(() => {
       )
       `, (err) => { if (!err) console.log("=> read_review created\n---\n") })
 
-
-
-
-
-
 }, (err) => {
     if (err) console.log(" ==> error :" + err);
     else console.log("==\nNO error in serial\n==\n")
 })
 
-// HOME ROUTE 
-app.get("/", (req, res) => {
-    //get product list 
-    let list = [];
+const homeRoute = require("./routes/home")
+const searchRoute = require("./routes/search")
+const buynowRoute = require("./routes/buynow")
+const productRoute = require("./routes/product")
+const buyRoute = require("./routes/buy")
+const reviewRoute = require("./routes/review")
+const adminRoute = require("./routes/admin")
+const addshopRoute = require("./routes/addshop")
 
-    db.all(`select * from PRODUCTS`,
-        (err, rows) => {
-            if (err) res.send(err);
-            else {
-                let i = 0;
-                rows.forEach((row) => {
-                    //res.write("\ncontent:\n" + row + "\n----\n");
-                    list[i++] = row;
-                })
-            }
-        })
-
-    db.close(err => {
-        if (err) console.log(err)
-        else {
-            res.render("home", { Products: list });
-            // res.send(list)
-        }
-    })
-
-    list = [];
-
-
-    // res.render('home');
-})
-
-app.post("/", (req, res) => {
-
-    res.send("parsed data : " + req.body.data)
-
-})
-
-//BUY Page
-
-app.get("/buynow", (req, res) => {
-    res.render('buynow');
-})
-
-app.post("/buynow", (req, res) => {
-
-
-    var cust = {
-        $id: req.body.id,
-        $name: req.body.name,
-        $address: req.body.address,
-        $city: req.body.city,
-        $phone: req.body.phone,
-        $email: req.body.email
-    };
-
-    console.log(cust);
-    //res.send(JSON.stringify(cust));
-
-    db.run(`insert into CUSTOMER values
-    ($id ,$name ,$city ,$address ,$phone ,$email )`, cust, (err) => {
-        if (err) res.send(err)
-        else res.send("Customer added!!\nWith id : " + cust.$id);
-    })
-
-
-});
-
-//Product
-app.get("/product", (req, res) => {
-    res.render("product");
-})
-
-//buy now
-
-app.get("/buynow", (req, res) => {
-    res.render("buynow")
-})
-
-
+//Home page
+app.use("/", homeRoute);
+//Search Page
+app.use("/search", searchRoute);
+//Buynow
+app.use("/buynow", buynowRoute);
+//Product Page
+app.use("/product", productRoute);
 //buy
-app.get("/buy", (req, res) => {
-    const list = [];
+app.use("/buy", buyRoute);
+//revoew
+app.use("/review", reviewRoute);
+//admin
+app.use("/admin", adminRoute);
+//add Product
+app.use("/addshop", addshopRoute);
 
-    db.all(`select * from CUSTOMER`,
-        (err, rows) => {
-            if (err) res.send(err);
-            else {
-                let i = 0;
-                rows.forEach((row) => {
-                    //res.write("\ncontent:\n" + row + "\n----\n");
-                    list[i++] = row;
-                })
-            }
-        })
-
-    db.close(err => {
-        if (err) console.log(err)
-        else {
-            res.send(list);
-        }
-    })
-
-
-});
-
-//search
-app.get('/search', (req, res) => {
-
-    res.render('search');
-})
-
-app.post('/search', (req, res) => {
-
-    const searchItem = req.body.searchTxt;
-    res.send(searchItem);
-})
-
-
-
-//Review 
-
-app.post("/review", (req, res) => {
-
-    var rev = {
-        $id: req.body.id,
-        $cust_id: req.body.cust_id,
-        $rating: req.body.rating,
-        $prdt_id: req.body.prdt_id,
-        $comment: req.body.comment
-    }
-
-    //res.send(JSON.stringify(rev));
-
-    db.run(`insert into REVIEW values
-    ($id ,$cust_id ,$prdt_id,$rating ,$comment)`, rev, (err) => {
-        if (err) res.send(err);
-        else res.send("Added Review\nWith review id " + rev.$id);
-    })
-
-})
-
-
-//ADMIN
-app.get('/admin', (req, res) => {
-    res.render("admin");
-
-})
-
-app.post("/admin", (req, res) => {
-
-    if (req.body.usrname != "admin")
-        res.send('<script> alert("Invalid Username !!!") </script>');
-    else if (req.body.password != "123")
-        res.send('<script> alert("Invalid Password !!!") </script>');
-    else res.render("dashboard")
-})
-
-//addProduct
-app.post("/addProduct", (req, res) => {
-    const db = new sqlite.Database('./SHOP-DB');
-
-    product = {
-        $id: req.body.id,
-        $shop_id: req.body.shopId,
-        $name: req.body.name,
-        $price: req.body.price,
-        $stocks: req.body.stocks,
-        $type: req.body.type,
-        $brand: req.body.brand
-    }
-
-    // res.send(JSON.stringify(product));
-
-    db.run(`insert into PRODUCTS values
-    ($id,$shop_id ,$name ,$price ,$stocks,$type,$brand)`, product,
-        (err) => {
-            if (err) {
-                res.redirect("/error");
-                console.log(err);
-            } else res.render("dashboard");
-        })
-});
-
-//addShop
-app.post("/addShop", (req, res) => {
-    shop = {
-        $id: req.body.id,
-        $name: req.body.name,
-        $loc: req.body.loc,
-        $phone: req.body.phone,
-        $email: req.body.email
-    }
-
-    // res.send(JSON.stringify(shop));
-
-    db.run(`insert into SHOP values
-    ($id ,$name ,$loc ,$phone ,$email)`, shop,
-        (err) => {
-            if (err) res.redirect('/error');
-            else res.render("dashboard");
-        })
-
-})
-
-//ABOUT US
+////////////////////////////////
 
 app.get('/about', (req, res) => {
-    res.render('about')
+    res.render('error')
 });
 
 app.get('/error', (req, res) => {
     res.render("error");
 })
+
 
 // SERVER CREATION
 app.listen(3000, (req, res) => {
