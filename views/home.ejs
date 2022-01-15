@@ -3,20 +3,20 @@
 
     <div class="box">
 
-        <% for (var i = 0 ; i < 20 ; i++) { %>
+        <% Products.forEach(product => { %>
             <div class="card-container">
                 <div class="card">
                     <div class="img">
                     </div>
                 </div>
-                <p class="productName">Name</p>
+                <p class="productName"></p>
                 <div class="btn">
-                    <a href="/product"> <button>BUY NOW</button></a>
+                    <a href="/product"> <button><%=product.Product_name%></button></a>
 
                 </div>
             </div>
 
-            <%}%>
+            <%})%>
 
     </div>
 

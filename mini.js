@@ -128,7 +128,33 @@ db.serialize(() => {
 
 // HOME ROUTE 
 app.get("/", (req, res) => {
-    res.render('home');
+    //get product list 
+    let list = [];
+
+    db.all(`select * from PRODUCTS`,
+        (err, rows) => {
+            if (err) res.send(err);
+            else {
+                let i = 0;
+                rows.forEach((row) => {
+                    //res.write("\ncontent:\n" + row + "\n----\n");
+                    list[i++] = row;
+                })
+            }
+        })
+
+    db.close(err => {
+        if (err) console.log(err)
+        else {
+            res.render("home", { Products: list });
+            // res.send(list)
+        }
+    })
+
+    list = [];
+
+
+    // res.render('home');
 })
 
 app.post("/", (req, res) => {
@@ -259,6 +285,7 @@ app.post("/admin", (req, res) => {
 
 //addProduct
 app.post("/addProduct", (req, res) => {
+    const db = new sqlite.Database('./SHOP-DB');
 
     product = {
         $id: req.body.id,
