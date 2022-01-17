@@ -23,7 +23,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
 }
 
-.box .card-container {
+.card-container {
     margin: 20px 20px;
 }
 
@@ -56,4 +56,13 @@ body::-webkit-scrollbar-thumb {
     color: #fff;
     margin: 5px;
     text-align: center;
+}
+
+.img {
+    text-align: center;
+}
+
+.img img {
+    width: 90%;
+    height: auto;
 }

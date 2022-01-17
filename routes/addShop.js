@@ -1,11 +1,7 @@
 const express = require('express')
 const sqlite = require('sqlite3').verbose();
 
-const db = new sqlite.Database('./SHOP-DB', (err) => {
-    if (!err) {
-        console.log("== connected to DB ==");
-    }
-});
+const db = new sqlite.Database('./SHOP-DB')
 
 const router = express.Router()
 

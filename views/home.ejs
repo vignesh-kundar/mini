@@ -4,21 +4,27 @@
     <div class="box">
 
         <% Products.forEach(product => { %>
+
             <div class="card-container">
                 <div class="card">
                     <div class="img">
+                        <img src="/images/camera.png" alt="product-img">
                     </div>
                 </div>
                 <p class="productName"></p>
                 <div class="btn">
-                    <a href="/product"> <button><%=product.Product_name%></button></a>
+                    <a href="/product/<%=product.Product_id%>"> <button> <%=product.Product_name%></button></a>
 
                 </div>
             </div>
 
+
             <%})%>
 
+
+
     </div>
+
 
 
 

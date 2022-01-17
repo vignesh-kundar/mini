@@ -1,21 +1,59 @@
 const express = require('express')
 const sqlite = require('sqlite3').verbose();
 
-const db = new sqlite.Database('./SHOP-DB', (err) => {
-    if (!err) {
-        console.log("== connected to DB ==");
-    }
-});
+
 
 const router = express.Router()
 
+var product;
+var review;
 
-router.get("/", (req, res) => {
-    res.render("product");
-})
+router.get("/:id", (req, res) => {
+
+    const db = new sqlite.Database('./SHOP-DB')
+
+    const Review = []
+
+    pId = req.params.id;
+
+    db.all(`select * from PRODUCTS where Product_id = ? `, [pId], (err, row) => {
+
+        if (err)
+            console.log(err);
+        else
+            product = row[0];
+    })
+
+
+    db.all(`SELECT * FROM REVIEW R ,CUSTOMER C where C.Cust_id = R.Cust_id and R.Prdt_id = ?`, [pId], (err, row) => {
+
+        if (err)
+            console.log(err)
+        else {
+            let i = 0;
+
+            row.forEach((rev) => {
+                Review[i++] = rev;
+            })
+        }
+        console.log(Review)
+    })
+
+
+    db.close(err => {
+        if (err)
+            console.log(err)
+        else
+            res.render("product", { Product: product, Review: Review });
+    })
+
+
+});
 
 router.post("/", (req, res) => {
     const db = new sqlite.Database('./SHOP-DB');
+
+    console.log(req.body.qid);
 
     product = {
         $id: req.body.id,

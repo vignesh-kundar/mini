@@ -132,24 +132,18 @@ const reviewRoute = require("./routes/review")
 const adminRoute = require("./routes/admin")
 const addshopRoute = require("./routes/addshop")
 
-//Home page
+
 app.use("/", homeRoute);
-//Search Page
 app.use("/search", searchRoute);
-//Buynow
 app.use("/buynow", buynowRoute);
-//Product Page
 app.use("/product", productRoute);
-//buy
 app.use("/buy", buyRoute);
-//revoew
 app.use("/review", reviewRoute);
-//admin
 app.use("/admin", adminRoute);
-//add Product
 app.use("/addshop", addshopRoute);
 
 ////////////////////////////////
+
 
 app.get('/about', (req, res) => {
     res.render('error')
@@ -158,6 +152,8 @@ app.get('/about', (req, res) => {
 app.get('/error', (req, res) => {
     res.render("error");
 })
+
+
 
 
 // SERVER CREATION

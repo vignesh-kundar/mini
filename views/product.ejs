@@ -3,67 +3,59 @@
     <div class="product-container">
 
         <div class="product-div">
-            <div class="product-img-container">
+            <div class="product-img-container img">
+                <img src="/images/sweater.png" alt="product img">
             </div>
             <div class="product-btn-div">
 
                 <button class="product-btn" type="submit"> <a href="/buynow">BUY NOW </a> </button>
                 <button class="product-btn" type="submit"> <a href="/shop"> SHOP</a> </button>
 
-                <p class="product-img-price">₹ 50/-</p>
+                <p class="product-img-price">₹
+                    <%=Product.Price%>
+                </p>
             </div>
         </div>
 
         <div class="product-data">
-            <h2 class="prodcut-name white">Product Name</h2>
+            <h2 class="prodcut-name white">
+                <%=Product.Product_name%>
+            </h2>
             <h4 class="product-desc">Product description : </h4>
             <p class="product-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                 irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-            <h3 class="white product-price">Price : ₹50 </h3>
-            <h3 class="white product-stocks">Stocks available : 50 </h3>
+            <h3 class="white product-price">Price : ₹
+                <%=Product.Price%> /-
+            </h3>
+            <h3 class="white product-stocks">Stocks available :
+                <%=Product.Stocks%>
+            </h3>
             <h3 class="white product-review">Reviews : </h3>
 
             <div class="product-review-div">
 
-                <div class="review-data-div">
+                <% Review.forEach(review => { %>
 
-                    <div class="review-cust-div">
-                        <h4 class="review-customer white">Customer Name</h4>
-                        <p class="white review-ratings">Ratings : 7/10</p>
+                    <div class="review-data-div">
+
+                        <div class="review-cust-div">
+                            <h4 class="review-customer white">
+                                <%=review.Cust_name%>
+                            </h4>
+                            <p class="white review-ratings">Ratings :
+                                <%=review.Ratings%>/10</p>
+                        </div>
+
+                        <div class="review-data">
+                            <p class="review-data-para white">
+                                <%=review.Comments%>
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="review-data">
-                        <p class="review-data-para white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                </div>
+                    <%})%>
 
-                <div class="review-data-div">
-
-                    <div class="review-cust-div">
-                        <h4 class="review-customer white">Customer Name</h4>
-                        <p class="white review-ratings">Ratings : 7/10</p>
-                    </div>
-
-                    <div class="review-data">
-                        <p class="review-data-para white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                </div>
-
-                <div class="review-data-div">
-
-                    <div class="review-cust-div">
-                        <h4 class="review-customer white">Customer Name</h4>
-                        <p class="white review-ratings">Ratings : 7/10</p>
-                    </div>
-
-                    <div class="review-data">
-                        <p class="review-data-para white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                </div>
             </div>
 
 
