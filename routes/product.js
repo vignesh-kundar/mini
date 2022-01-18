@@ -6,13 +6,15 @@ const sqlite = require('sqlite3').verbose();
 const router = express.Router()
 
 var product;
-var review;
+
 
 router.get("/:id", (req, res) => {
 
     const db = new sqlite.Database('./SHOP-DB')
 
     const Review = []
+
+
 
     pId = req.params.id;
 
@@ -73,7 +75,7 @@ router.post("/", (req, res) => {
             if (err) {
                 res.redirect("/error");
                 console.log(err);
-            } else res.render("dashboard");
+            } else res.render("home");
         })
 });
 

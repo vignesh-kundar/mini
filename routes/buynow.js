@@ -6,7 +6,11 @@ const db = new sqlite.Database('./SHOP-DB')
 const router = express.Router()
 
 router.get("/", (req, res) => {
-    res.render('buynow');
+
+    var date = new Date().toISOString().split("T")[0];
+    // var date = new Date().toLocaleDateString("hi-IN");
+
+    res.render('buynow', { Date: date });
 })
 
 router.post("/", (req, res) => {

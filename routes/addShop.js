@@ -5,7 +5,7 @@ const db = new sqlite.Database('./SHOP-DB')
 
 const router = express.Router()
 
-router.post("/addShop", (req, res) => {
+router.post("/", (req, res) => {
     shop = {
         $id: req.body.id,
         $name: req.body.name,
@@ -20,7 +20,7 @@ router.post("/addShop", (req, res) => {
     ($id ,$name ,$loc ,$phone ,$email)`, shop,
         (err) => {
             if (err) res.redirect('/error');
-            else res.render("dashboard");
+            else res.render("home");
         })
 
 })

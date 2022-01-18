@@ -111,6 +111,7 @@
         <!-- SHOP -->
         <div class="view-data shop" id="shops">
             <h2>Shop data</h2>
+
             <table class="data-table">
                 <tr>
                     <th>Shop id</th>
@@ -119,34 +120,35 @@
                     <th>Phone</th>
                     <th>Email</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>Mangalore</td>
-                    <td>123456789</td>
-                    <td>vigneshkundar125@gmail.com</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>Mangalore</td>
-                    <td>123456789</td>
-                    <td>vigneshkundar125@gmail.com</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>Mangalore</td>
-                    <td>123456789</td>
-                    <td>vigneshkundar125@gmail.com</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>Mangalore</td>
-                    <td>123456789</td>
-                    <td>vigneshkundar125@gmail.com</td>
-                </tr>
+
+                <% Angadi.forEach(shop => { %>
+
+                    <tr>
+                        <td>
+                            <%=shop.Shop_id%>
+                        </td>
+                        <td>
+                            <%=shop.Shop_name%>
+                        </td>
+                        <td>
+                            <%=shop.Shop_loc%>
+                        </td>
+                        <td>
+                            <%=shop.Phone%>
+                        </td>
+                        <td>
+                            <%=shop.Email%>
+                        </td>
+                    </tr>
+
+
+                    <%})%>
+
+
+
+
+
+
             </table>
 
         </div>
@@ -161,39 +163,37 @@
                     <th>Price(Rs)</th>
                     <th>Stocks</th>
                     <th>Type</th>
-                    <th>Review id</th>
                     <th>Brand</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>Clinic plus</td>
-                    <td>30</td>
-                    <td>15</td>
-                    <td>Shampoo</td>
-                    <td>4</td>
-                    <td>uniliver</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>Clinic plus</td>
-                    <td>30</td>
-                    <td>15</td>
-                    <td>Shampoo</td>
-                    <td>4</td>
-                    <td>uniliver</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>Clinic plus</td>
-                    <td>30</td>
-                    <td>15</td>
-                    <td>Shampoo</td>
-                    <td>4</td>
-                    <td>uniliver</td>
-                </tr>
+
+                <% Saman.forEach(product => { %>
+                    <tr>
+                        <td>
+                            <%=product.Product_id%>
+                        </td>
+                        <td>
+                            <%=product.Shop_id%>
+                        </td>
+                        <td>
+                            <%=product.Product_name%>
+                        </td>
+                        <td>
+                            <%=product.Price%>
+                        </td>
+                        <td>
+                            <%=product.Stocks%>
+                        </td>
+                        <td>
+                            <%=product.Type%>
+                        </td>
+                        <td>
+                            <%=product.Brand%>
+                        </td>
+
+                    </tr>
+                    <%})%>
+
+
 
             </table>
 
