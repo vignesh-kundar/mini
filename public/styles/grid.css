@@ -29,10 +29,11 @@ body::-webkit-scrollbar-thumb {
 
 .card-container .card {
     height: 15rem;
-    /* background-color: rgba(65, 105, 225, 0.347); */
+    /* hi */
+    background-color: rgba(65, 105, 225, 0.136);
     border: 1px solid rgba(65, 105, 225, 0.163);
     border-radius: 10px;
-    box-shadow: -2px 2px 2px rgba(65, 105, 225, 0.122);
+    box-shadow: -2px 2px 5px rgba(150, 173, 241, 0.421);
 }
 
 .card-container .btn {
@@ -52,6 +53,7 @@ body::-webkit-scrollbar-thumb {
     font-weight: bold;
     color: white;
     cursor: pointer;
+    box-shadow: -2px 2px 5px rgba(255, 255, 255, 0.34);
 }
 
 .productName {

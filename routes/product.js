@@ -75,7 +75,7 @@ router.post("/", (req, res) => {
             if (err) {
                 res.redirect("/error");
                 console.log(err);
-            } else res.render("home");
+            } else res.redirect("/")
         })
 });
 

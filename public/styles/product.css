@@ -10,7 +10,9 @@
 .product-img-container {
     height: 35vw;
     width: 35vw;
-    background-color: rgba(65, 105, 225, 0.251);
+    background-color: rgba(65, 105, 225, 0.136);
+    border: 1px solid rgba(65, 105, 225, 0.163);
+    box-shadow: -2px 2px 5px rgba(150, 173, 241, 0.421);
     border-radius: 10px;
 }
 

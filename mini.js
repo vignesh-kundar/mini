@@ -130,7 +130,9 @@ const productRoute = require("./routes/product")
 const buyRoute = require("./routes/buy")
 const reviewRoute = require("./routes/review")
 const adminRoute = require("./routes/admin")
-const addshopRoute = require("./routes/addshop")
+const shopRoute = require("./routes/Shop")
+
+
 
 
 app.use("/", homeRoute);
@@ -140,7 +142,8 @@ app.use("/product", productRoute);
 app.use("/buy", buyRoute);
 app.use("/review", reviewRoute);
 app.use("/admin", adminRoute);
-app.use("/addshop", addshopRoute);
+app.use("/shop", shopRoute);
+
 
 ////////////////////////////////
 
