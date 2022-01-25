@@ -5,7 +5,10 @@ const db = new sqlite.Database('./SHOP-DB')
 
 const router = express.Router()
 
-router.get("/", (req, res) => {
+router.get("/:buynowId", (req, res) => {
+
+    pdId = req.params.buynowId;
+    console.log(pdId);
 
     var date = new Date().toISOString().split("T")[0];
     // var date = new Date().toLocaleDateString("hi-IN");
@@ -16,7 +19,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
 
     var cust = {
-        $id: req.body.id,
+        // $id: req.body.id,
         $name: req.body.name,
         $address: req.body.address,
         $city: req.body.city,
@@ -27,10 +30,10 @@ router.post("/", (req, res) => {
     console.log(cust);
     //res.send(JSON.stringify(cust));
 
-    db.run(`insert into CUSTOMER values
-    ($id ,$name ,$city ,$address ,$phone ,$email )`, cust, (err) => {
+    db.run(`insert into CUSTOMER (Cust_name , City , Address ,Phone ,Email ) values
+    ($name ,$city ,$address ,$phone ,$email )`, cust, (err) => {
         if (err) res.send(err)
-        else res.send("Customer added!!\nWith id : " + cust.$id);
+        else res.send("Thank you for ordering , Dear " + cust.$name + ". Your Product will be recied within 5 days." + `<a href="/">Click here to go to Home page</a> `);
     })
 
 

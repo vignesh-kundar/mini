@@ -28,47 +28,51 @@ db.serialize(() => {
     //CREATING TABLES ;) 
 
     db.run(`create table if not exists CUSTOMER (
-        Cust_id integer primary key,
+        Cust_id integer primary key AUTOINCREMENT,
         Cust_name varchar(30),
         City varchar(30),
         Address Varchar(30),
-        Phone numeric(10),Email varchar(30) )`,
+        Phone numeric(10),
+        Email varchar(30) )`,
 
         (err) => {
-            if (!err)
+            if (err) console.log(err);
+            else
                 console.log("\n---\n=> Customer created");
         })
 
     db.run(`create table if not exists SHOP (
-        Shop_id integer primary key,
+        Shop_id integer primary key AUTOINCREMENT,
         Shop_name varchar(30),
         Shop_loc varchar(30),
         Phone numeric(10),
         Email varchar(30) )`,
 
         (err) => {
-            if (!err)
+            if (err) console.log(err);
+            else
                 console.log("=> Shop created");
         })
 
     db.run(`create table if not EXISTS PRODUCTS (
-        Product_id integer,
+        Product_id integer primary key AUTOINCREMENT,
         Shop_id integer,
         Product_name varchar(30),
         Price smallmoney,
         Stocks integer,
         Type varchar(30),
         Brand varchar(30),
-        Primary key (Product_id , Shop_id ),
+        UNIQUE (Product_id , Shop_id ),
         FOREIGN KEY (Shop_id) REFERENCES SHOP (Shop_id) ON DELETE CASCADE
 
     )`, (err) => {
-        if (!err)
+        if (err) console.log(err);
+        else
             console.log("=> Products created")
     })
 
     db.run(`create table if not EXISTS REVIEW (
-        Review_id Integer Primary key,
+        Review_id Integer Primary key AUTOINCREMENT,
         Cust_id Integer,
         Prdt_id Interger,
         Ratings Integer,
@@ -77,13 +81,14 @@ db.serialize(() => {
         FOREIGN KEY (Prdt_id) REFERENCES PRODUCTS (Product_id) ON DELETE CASCADE
       )`,
         (err) => {
-            if (!err) {
+            if (err) console.log(err);
+            else
                 console.log("=> review created");
-            }
+
         })
 
     db.run(`create table if not exists ORDERS (
-        Order_id integer PRIMARY key,
+        Order_id integer PRIMARY key AUTOINCREMENT,
         Cust_id integer,
         Shop_id integer,
         Product_id integer,
@@ -91,7 +96,11 @@ db.serialize(() => {
         FOREIGN KEY (Cust_id) REFERENCES CUSTOMER (Cust_id) ON DELETE CASCADE,
         FOREIGN KEY (Shop_id) REFERENCES SHOP (Shop_id) ON DELETE CASCADE,
         FOREIGN KEY (Product_id) REFERENCES PRODUCTS (Product_id) ON DELETE CASCADE
-      )`, (err) => { if (!err) console.log("=> orders created") })
+      )`, (err) => {
+        if (err) console.log(err);
+        else
+            console.log("=> orders created")
+    })
 
     db.run(`create table if not EXISTS VISITS (
         Cust_id integer,
@@ -99,7 +108,10 @@ db.serialize(() => {
         primary key (Cust_id , Shop_id),
         FOREIGN KEY (Cust_id) REFERENCES CUSTOMER (Cust_id) ON DELETE CASCADE,
         FOREIGN KEY (Shop_id) REFERENCES SHOP (Shop_id) ON DELETE CASCADE
-      )`, (err) => { if (!err) console.log("=> visits created") })
+      )`, (err) => {
+        if (err) console.log(err);
+        else console.log("=> visits created")
+    })
 
     db.run(`create table if not EXISTS CONTAINS (
         Product_id integer,
@@ -107,7 +119,10 @@ db.serialize(() => {
         primary key (Product_id , Order_id),
         FOREIGN KEY (Product_id) REFERENCES PRODUCTS (Product_id) ON DELETE CASCADE,
         FOREIGN KEY (Order_id) REFERENCES ORDERS (Order_id) ON DELETE CASCADE
-      )`, (err) => { if (!err) console.log("=> contains created") })
+      )`, (err) => {
+        if (err) console.log(err);
+        else console.log("=> contains created")
+    })
 
     db.run(`create table if not EXISTS READ_REVIEW (
         Review_id integer,
@@ -116,7 +131,10 @@ db.serialize(() => {
         FOREIGN KEY (Review_id) REFERENCES REVIEW (Review_id) ON DELETE CASCADE,
         FOREIGN KEY (Order_id) REFERENCES ORDERS (Order_id) ON DELETE CASCADE
       )
-      `, (err) => { if (!err) console.log("=> read_review created\n---\n") })
+      `, (err) => {
+        if (err) console.log(err);
+        else console.log("=> read_review created\n---\n")
+    })
 
 }, (err) => {
     if (err) console.log(" ==> error :" + err);

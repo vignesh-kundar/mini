@@ -20,13 +20,11 @@ router.post("/add", (req, res) => {
 
     // res.send(JSON.stringify(shop));
 
-    db.run(`insert into SHOP values
-    ($id ,$name ,$loc ,$phone ,$email)`, shop,
+    db.run(`insert into SHOP (Shop_name,Shop_loc,Phone,Email) values
+    ($name ,$loc ,$phone ,$email)`, shop,
         (err) => {
-            if (err)
-                res.redirect('/error', { Eroor: JSON.stringify(err) });
-            else
-                res.redirect("/")
+            if (err) res.redirect('/error', { Eroor: err });
+            else res.redirect("/")
         })
 
 })

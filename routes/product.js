@@ -46,7 +46,7 @@ router.get("/:id", (req, res) => {
         if (err)
             console.log(err)
         else
-            res.render("product", { Product: product, Review: Review });
+            res.render("product", { Product: product, Review: Review, Param: pId });
     })
 
 
@@ -69,8 +69,8 @@ router.post("/", (req, res) => {
 
     // res.send(JSON.stringify(product));
 
-    db.run(`insert into PRODUCTS values
-    ($id,$shop_id ,$name ,$price ,$stocks,$type,$brand)`, product,
+    db.run(`insert into PRODUCTS (Shop_id,Product_name,Price,Stocks,Type,Brand) values
+    ($shop_id ,$name ,$price ,$stocks,$type,$brand)`, product,
         (err) => {
             if (err) {
                 res.redirect("/error");
