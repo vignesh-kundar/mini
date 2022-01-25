@@ -1,2 +1,3 @@
-node_modules/
-dump/
+node_modules/*
+dump/*
+SHOP-DB

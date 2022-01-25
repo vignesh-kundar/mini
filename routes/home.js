@@ -31,7 +31,7 @@ router.get("/", (req, res) => {
         }
     })
 
-    list = [];
+    // list = [];
 
 
     // res.render('home');

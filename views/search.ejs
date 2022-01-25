@@ -1,15 +1,39 @@
 <%- include('partials/header') %>
 
     <form action="/search" method="post">
-
         <div class="search-container">
             <!-- <label for='search-lable' id="suba"class='search-lable'>Search</label> -->
-            <input type="text" autocomplete="off" name="searchTxt" class="search-input" placeholder="Search Product Name" required>
+            <input type="text" autocomplete="off" name="searchTxt" class="search-input" placeholder="Search Product Name or By Product Type" required>
             <button class="search-btn" type="submit">></button>
         </div>
-
-
     </form>
 
+    <div class="search-text">Search Result for : </div>
 
-    <%- include('partials/footer') %>
+    <% if( Products.length != 0 ) { %>
+
+        <div class="box">
+
+            <% Products.forEach(product => { %>
+
+                <div class="card-container">
+                    <div class="card">
+                        <div class="img">
+                            <img src="/images/watch.png" alt="product-img">
+                        </div>
+                    </div>
+                    <p class="productName"></p>
+                    <div class="btn">
+                        <a href="/product/<%=product.Product_id%>"> <button> <%=product.Product_name%></button></a>
+
+                    </div>
+                </div>
+
+                <%})%>
+
+        </div>
+
+        <% } %>
+
+
+            <%- include('partials/footer') %>

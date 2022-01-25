@@ -1,7 +1,7 @@
 <%- include('partials/header') %>
 
     <div class="shop-head">
-        <h1> <span>Product Name</span> is currently available in </h1>
+        <h1> <span><%= Angadi[0].Product_name%></span> is currently available in </h1>
     </div>
 
     <div class="shop-container">
@@ -18,87 +18,27 @@
                     <th>Email</th>
                 </tr>
 
+                <% Angadi.forEach(shop => { %>
 
+                    <tr>
+                        <td>
+                            <%=shop.Shop_id%>
+                        </td>
+                        <td>
+                            <%=shop.Shop_name%>
+                        </td>
+                        <td>
+                            <%=shop.Shop_loc%>
+                        </td>
+                        <td>
+                            <%=shop.Phone%>
+                        </td>
+                        <td>
+                            <%=shop.Email%>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td>
-                        69
-                    </td>
-                    <td>
-                        subbi angadi
-                    </td>
-                    <td>
-                        mangalore
-                    </td>
-                    <td>
-                        9071077931
-                    </td>
-                    <td>
-                        12sdsdsdsdssd3@email.com
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        69
-                    </td>
-                    <td>
-                        subbi angadi
-                    </td>
-                    <td>
-                        mangalore
-                    </td>
-                    <td>
-                        9071077931
-                    </td>
-                    <td>
-                        123@email.com
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        69
-                    </td>
-                    <td>
-                        subbi angadi
-                    </td>
-                    <td>
-                        mangalore
-                    </td>
-                    <td>
-                        9071077931
-                    </td>
-                    <td>
-                        123@email.com
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        69
-                    </td>
-                    <td>
-                        subbi angadi
-                    </td>
-                    <td>
-                        mangalore
-                    </td>
-                    <td>
-                        9071077931
-                    </td>
-                    <td>
-                        123@email.com
-                    </td>
-                </tr>
-
-
-
-
-
-
-
-
+                    <%})%>
 
             </table>
 

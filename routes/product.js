@@ -14,12 +14,9 @@ router.get("/:id", (req, res) => {
 
     const Review = []
 
-
-
     pId = req.params.id;
 
     db.all(`select * from PRODUCTS where Product_id = ? `, [pId], (err, row) => {
-
         if (err)
             console.log(err);
         else

@@ -16,3 +16,7 @@
 .shop-container {
     text-align: center;
 }
+
+.shop-head span {
+    padding: 5px;
+}

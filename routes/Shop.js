@@ -1,12 +1,47 @@
 const express = require('express')
 const sqlite = require('sqlite3').verbose();
 
-const db = new sqlite.Database('./SHOP-DB')
+
 
 const router = express.Router()
 
-router.get("/", (req, res) => {
-    res.render("shop")
+router.get("/:id", (req, res) => {
+
+    const db = new sqlite.Database('./SHOP-DB')
+    let shopList = []
+
+    let pid = req.params.id;
+
+    console.log(pid, "is the sent pid")
+
+    db.all(`SELECT * FROM SHOP s, PRODUCTS p
+    where p.Shop_id = ( select Shop_id 
+                     from SHOP) and Product_id = ?;`, [pid],
+        (err, rows) => {
+            if (err) console.log(err);
+            else {
+                let i = 0;
+                rows.forEach((row) => {
+                    shopList[i++] = row;
+                    console.log(shopList[0].Product_name);
+
+                });
+
+            }
+
+        });
+
+
+    db.close(err => {
+        if (err) console.log(err)
+        else {
+            res.render("shop", { Angadi: shopList })
+        }
+    })
+
+    shopList = []
+
+
 });
 
 router.post("/add", (req, res) => {
@@ -23,10 +58,10 @@ router.post("/add", (req, res) => {
     db.run(`insert into SHOP (Shop_name,Shop_loc,Phone,Email) values
     ($name ,$loc ,$phone ,$email)`, shop,
         (err) => {
-            if (err) res.redirect('/error', { Eroor: err });
+            if (err) res.render('error', { Error: err });
             else res.redirect("/")
         })
 
-})
+});
 
 module.exports = router;
