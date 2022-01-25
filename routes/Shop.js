@@ -23,8 +23,10 @@ router.post("/add", (req, res) => {
     db.run(`insert into SHOP values
     ($id ,$name ,$loc ,$phone ,$email)`, shop,
         (err) => {
-            if (err) res.redirect('/error');
-            else res.redirect("/")
+            if (err)
+                res.redirect('/error', { Eroor: JSON.stringify(err) });
+            else
+                res.redirect("/")
         })
 
 })

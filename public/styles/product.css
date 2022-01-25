@@ -80,7 +80,9 @@
 .review-data-div {
     height: fit-content;
     width: 40vw;
-    background-color: rgba(65, 105, 225, 0.197);
+    background-color: rgba(65, 105, 225, 0.136);
+    border: 1px solid rgba(65, 105, 225, 0.163);
+    box-shadow: -2px 2px 5px rgba(150, 173, 241, 0.421);
     border-radius: 10px;
     margin: 30px 0;
 }

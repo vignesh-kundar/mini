@@ -17,16 +17,34 @@
 
     <h1>ERROR :(</h1>
 
-    <h2>Oops its a CONSTRAINT error !!!</h2>
+    <h2>
+        <%=Error%>
+    </h2>
     <h2>Try using differen ID or make sure FOREIGN KEY exist!!!</h2>
     <div class="error-giphy">
-        <!-- <img src="https://media.giphy.com/media/XEV1MZdsQiB2UvsdRh/giphy.gif" width="fit-content" height="fit-content" allowFullScreen></iframe> -->
-        <!-- <img src="https://media.giphy.com/media/PWlsJVm3mhwQhD7imf/giphy.gif" width="fit-content" height="fit-content" allowFullScreen></iframe> -->
-        <!-- <img src="https://media.giphy.com/media/SQ2beVY199Hk6DDVhU/giphy.gif" width="fit-content" height="fit-content" allowFullScreen></iframe> -->
-        <!-- <img src="https://media.giphy.com/media/YKPnig6bCS208kbtmK/giphy.gif" width="fit-content" height="fit-content" allowFullScreen></iframe> -->
-        <img src="https://media.giphy.com/media/LMF0yPhkuCZQIWySSP/giphy.gif" width="500px" height="auto" allowFullScreen></iframe>
+
+        <% switch( Math.round(Math.random()*4)) {
+
+            case  0 :%>
+            <img src="https://media.giphy.com/media/XEV1MZdsQiB2UvsdRh/giphy.gif" width="fit-content" height="fit-content" allowFullScreen></iframe>
+            <% break;
+            case 1 : %>
+                <img src="https://media.giphy.com/media/PWlsJVm3mhwQhD7imf/giphy.gif" width="fit-content" height="fit-content" allowFullScreen></iframe>
+                <% break;
+            case 2 : %>
+                    <img src="https://media.giphy.com/media/SQ2beVY199Hk6DDVhU/giphy.gif" width="fit-content" height="fit-content" allowFullScreen></iframe>
+                    <% break;
+            case 3 : %>
+                        <img src="https://media.giphy.com/media/YKPnig6bCS208kbtmK/giphy.gif" width="fit-content" height="fit-content" allowFullScreen></iframe>
+                        <% break;
+            case 4 : %>
+                            <img src="https://media.giphy.com/media/LMF0yPhkuCZQIWySSP/giphy.gif" width="500px" height="auto" allowFullScreen></iframe>
+                            <% break;
+            default : %>
+                                <h2 class="white">Error (❁´◡`❁)</h2>>
 
 
+                                <%}%>
     </div>
 
 

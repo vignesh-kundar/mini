@@ -133,8 +133,6 @@ const adminRoute = require("./routes/admin")
 const shopRoute = require("./routes/Shop")
 
 
-
-
 app.use("/", homeRoute);
 app.use("/search", searchRoute);
 app.use("/buynow", buynowRoute);
