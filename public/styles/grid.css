@@ -27,7 +27,7 @@ body::-webkit-scrollbar-thumb {
     margin: 20px 20px;
 }
 
-.card-container .card {
+.card {
     height: 15rem;
     /* hi */
     background-color: rgba(65, 105, 225, 0.136);

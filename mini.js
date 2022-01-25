@@ -149,7 +149,7 @@ app.use("/shop", shopRoute);
 
 
 app.get('/about', (req, res) => {
-    res.render('error')
+    res.render('about')
 });
 
 app.get('/error', (req, res) => {

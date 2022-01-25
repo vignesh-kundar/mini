@@ -1,24 +1,18 @@
-.shop-title {
+.shop-head {
+    display: flex;
+    justify-content: center;
+    margin: 60px auto;
+}
+
+.shop-head h1 {
+    color: #fff;
+    font-size: 3em;
+}
+
+.shop-head h1 span {
+    color: royalblue;
+}
+
+.shop-container {
     text-align: center;
-}
-
-.shop-title h2 {
-    margin: auto;
-    font-size: 8em;
-    margin: 220px 0;
-    color: transparent;
-    text-shadow: 0 0 50px rgb(255, 255, 255);
-    transition: all 3s;
-}
-
-.shop-title h2:hover {
-    color: #0863ffac;
-    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.449);
-    transition: all 1s;
-}
-
-.shop-homebtn a button {
-    padding: 10px;
-    background-color: lightblue;
-    border-radius: 10px;
 }
