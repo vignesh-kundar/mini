@@ -12,6 +12,7 @@
         <div class="buy-container-insert">
             <p>Enter your details!!</p>
             <form action="/buynow" method="post">
+
                 <ul>
                     <!-- <li> <input type="number" name="id" placeholder="Customer id" class="buy-container-input"></li> -->
                     <li> <input type="text" name="name" placeholder="Name" class="buy-container-input"></li>
@@ -21,6 +22,7 @@
                     <li> <input type="mail" name="email" placeholder="Email" class="buy-container-input"></li>
                 </ul>
                 <div class="insert-btn-div">
+                    <input type="hidden" name="productId" value="<%= Pid %>"> </input>
                     <button class="insert-submit" type="submit">Place Order</button>
                 </div>
             </form>

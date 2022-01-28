@@ -33,7 +33,8 @@ db.serialize(() => {
         City varchar(30),
         Address Varchar(30),
         Phone numeric(10),
-        Email varchar(30) )`,
+        Email varchar(30) 
+        UNIQUE (Cust_name , City , Address , Phone , Email ) );`,
 
         (err) => {
             if (err) console.log(err);
