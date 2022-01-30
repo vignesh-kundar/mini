@@ -7,7 +7,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
-
+console.clear();
+console.log("\n==logs cleared==\n");
 
 // CONNECT TO DB 
 const db = new sqlite.Database('./SHOP-DB', (err) => {
@@ -33,7 +34,8 @@ db.serialize(() => {
         City varchar(30),
         Address Varchar(30),
         Phone numeric(10),
-        Email varchar(30) 
+        Email varchar(30),
+        UNIQUE (Phone),
         UNIQUE (Cust_name , City , Address , Phone , Email ) );`,
 
         (err) => {
@@ -74,8 +76,8 @@ db.serialize(() => {
 
     db.run(`create table if not EXISTS REVIEW (
         Review_id Integer Primary key AUTOINCREMENT,
-        Cust_id Integer,
-        Prdt_id Interger,
+        Cust_id Integer NOT NULL,
+        Prdt_id Interger NOT NULL,
         Ratings Integer,
         Comments varchar(1000),
         FOREIGN KEY (Cust_id) REFERENCES CUSTOMER (Cust_id) ON DELETE CASCADE,
@@ -165,6 +167,8 @@ app.use("/shop", shopRoute);
 ////////////////////////////////
 
 
+
+
 app.get('/about', (req, res) => {
     res.render('about')
 });
@@ -172,8 +176,6 @@ app.get('/about', (req, res) => {
 app.get('/error', (req, res) => {
     res.render("error");
 })
-
-
 
 
 // SERVER CREATION

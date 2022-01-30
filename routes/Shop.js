@@ -45,6 +45,9 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/add", (req, res) => {
+
+    const db = new sqlite.Database('./SHOP-DB')
+
     shop = {
         $id: req.body.id,
         $name: req.body.name,
@@ -52,6 +55,8 @@ router.post("/add", (req, res) => {
         $phone: req.body.phone,
         $email: req.body.email
     }
+
+    console.log("Entered name is : " + req.body.name);
 
     // res.send(JSON.stringify(shop));
 

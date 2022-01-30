@@ -1,6 +1,9 @@
 <%- include('partials/header')%>
     <div class="buy-head">
-        <h3 class="buy-head-data">Product Name</h3>
+        <h3 class="buy-head-data">
+            <span class="">Product Name</span>
+            <%=Product.Product_name%>
+        </h3>
         <h3 class="buy-head-data"><span>Today</span>
             <%=Date%>
         </h3>
@@ -22,7 +25,8 @@
                     <li> <input type="mail" name="email" placeholder="Email" class="buy-container-input"></li>
                 </ul>
                 <div class="insert-btn-div">
-                    <input type="hidden" name="productId" value="<%= Pid %>"> </input>
+                    <input type="hidden" name="productId" value="<%= Product.Product_id %>"> </input>
+                    <input type="hidden" name="shopId" value="<%= Product.Shop_id %>"> </input>
                     <button class="insert-submit" type="submit">Place Order</button>
                 </div>
             </form>

@@ -52,7 +52,7 @@
             <form action="/product" method="post">
 
                 <ul class="insertlist">
-                    <!-- <li class="insert-li"><input required placeholder="Product id" name="id" type="number" class="insert-input"> </li> -->
+                    <li class="insert-li"><input required placeholder="Product id" name="id" type="number" class="insert-input"> </li>
                     <li class="insert-li"><input required placeholder="Shop id" name="shopId" type="number" class="insert-input"> </li>
                     <li class="insert-li"><input required placeholder="Product name" name="name" type="text" class="insert-input"> </li>
                     <li class="insert-li"><input required placeholder="Product price" name="price" type="number" class="insert-input"> </li>
@@ -84,27 +84,27 @@
                     <th>Product id</th>
                     <th>Order date</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>22-33-4444</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>22-33-4444</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>22-33-4444</td>
-                </tr>
+
+                <% Orders.forEach(order => { %>
+                    <tr>
+                        <td>
+                            <%=order.Order_id %>
+                        </td>
+                        <td>
+                            <%=order.Cust_id %>
+                        </td>
+                        <td>
+                            <%=order.Shop_id %>
+                        </td>
+                        <td>
+                            <%=order.Product_id %>
+                        </td>
+                        <td>
+                            <%=order.Order_date %>
+                        </td>
+                    </tr>
+                    <%})%>
+
             </table>
 
         </div>
@@ -208,18 +208,17 @@
                         <th>Cust id</th>
                         <th>Shop id</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
+                    <% Orders.forEach(visits => { %>
+                        <tr>
+                            <td>
+                                <%=visits.Cust_id%>
+                            </td>
+                            <td>
+                                <%=visits.Shop_id%>
+                            </td>
+                        </tr>
+                        <%})%>
+
                 </table>
             </div>
             <!-- CONTAINS -->
@@ -230,18 +229,16 @@
                         <th>Product id</th>
                         <th>Order id</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
+                    <% Orders.forEach(contains => { %>
+                        <tr>
+                            <td>
+                                <%= contains.Product_id%>
+                            </td>
+                            <td>
+                                <%= contains.Order_id%>
+                            </td>
+                        </tr>
+                        <% })%>
                 </table>
 
             </div>

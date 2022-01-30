@@ -66,8 +66,11 @@ router.post("/", (req, res) => {
 
     // res.send(JSON.stringify(product));
 
-    db.run(`insert into PRODUCTS (Shop_id,Product_name,Price,Stocks,Type,Brand) values
-    ($shop_id ,$name ,$price ,$stocks,$type,$brand)`, product,
+    // `insert into PRODUCTS (Shop_id,Product_name,Price,Stocks,Type,Brand) values
+    // ($shop_id ,$name ,$price ,$stocks,$type,$brand)`
+
+    db.run(`insert into PRODUCTS values
+    ($id,$shop_id ,$name ,$price ,$stocks,$type,$brand)`, product,
         (err) => {
             if (err) {
                 res.redirect("/error");

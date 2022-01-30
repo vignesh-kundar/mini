@@ -7,9 +7,9 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
 
-    let mt = []
+    let emt = []
 
-    res.render('search', { Products: mt });
+    res.render('search', { Products: emt });
 })
 
 router.post('/', (req, res) => {
