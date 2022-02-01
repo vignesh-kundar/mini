@@ -15,7 +15,7 @@ router.post("/", (req, res) => {
         //$id: req.body.id,
         $cust_id: req.body.cust_id,
         $rating: req.body.rating,
-        $prdt_id: req.body.prdt_id,
+        $prdt_id: req.body.productId,
         $comment: req.body.comment
     }
 

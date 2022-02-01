@@ -1,7 +1,35 @@
 .dashboardHead {
     color: rgba(255, 255, 255, 0.496);
-    margin: 20px 40px;
+    margin: 30px 40px;
 }
+
+.dashboardHead span {
+    color: royalblue;
+}
+
+.dashlogout button {
+    margin: 20px 40px;
+    padding: 10px;
+    background-color: royalblue;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1 rem;
+    border-style: none;
+    cursor: pointer;
+}
+
+.dashlogout button:hover {
+    background-color: rgb(122, 151, 240);
+    box-shadow: -2 -2 5 #fff;
+}
+
+.dashhead-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* main content*/
 
 .dashboardContainer {
     margin: 20px 0;
@@ -42,6 +70,32 @@
     width: 60vw;
     margin: 0 auto;
     margin: 20px auto;
+}
+
+
+/*  Dash tips*/
+
+.dash-tips p {
+    color: rgba(253, 253, 253, 0.435);
+    margin: 10px 0;
+}
+
+.dash-tips span {
+    color: royalblue;
+}
+
+.dash-tips {
+    height: fit-content;
+    width: 250px;
+    border-radius: 10px;
+    margin: 30px 40px;
+    border: solid 3px rgba(253, 253, 253, 0.435);
+    text-align: center;
+}
+
+.dash-tips h3 {
+    color: rgba(253, 253, 253, 0.435);
+    margin: 20px 0;
 }
 
 

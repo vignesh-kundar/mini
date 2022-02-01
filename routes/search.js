@@ -18,11 +18,14 @@ router.post('/', (req, res) => {
 
     let list = [];
 
-    const searchItem = req.body.searchTxt;
+    const searchItem = req.body.searchTxt + "%";
+
+    let sql = `select * from PRODUCTS where Product_name like '${searchItem}' or Type like '${searchItem}'`;
+    console.log("Requested search query :" + searchItem);
 
 
-    db.all(`select * from PRODUCTS 
-    where Product_name = ? or Type= ?`, [searchItem, searchItem], (err, rows) => {
+
+    db.all(sql, [], (err, rows) => {
         if (err) console.log(err);
         else {
             let i = 0;

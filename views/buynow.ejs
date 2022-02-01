@@ -58,12 +58,13 @@
                 <ul>
                     <!-- <li><input type="number" class="buy-container-input" placeholder="Review Id" name="id"></li> -->
                     <li><input type="number" class="buy-container-input" placeholder="Customer Id" name="cust_id"></li>
-                    <li><input type="number" class="buy-container-input" placeholder="Product Id" name="prdt_id"></li>
+                    <!-- <li><input type="hidden" class="buy-container-input" placeholder="Product Id" name="prdt_id"</li> -->
                     <li><input type="number" class="buy-container-input" placeholder="Ratings [10 Max]" name="rating"></li>
                     <li><textarea name="comment" placeholder="Comment"></textarea></li>
                 </ul>
 
                 <div class="insert-btn-div">
+                    <input type="hidden" name="productId" value="<%= Product.Product_id %>"> </input>
                     <button class="insert-submit" type="submit">Add Review</button>
                 </div>
 

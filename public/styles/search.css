@@ -25,5 +25,16 @@
     border: none;
 }
 
+.search-text {
+    display: flex;
+    justify-content: center;
+}
+
+.search-text>h3 {
+    color: rgba(255, 255, 255, 0.435);
+    letter-spacing: 2px;
+    margin: 10px 40px;
+}
+
 
 /*55555555555555555555555=products=5555555555555555555555555555*/

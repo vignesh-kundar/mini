@@ -1,7 +1,7 @@
 <%- include('partials/header') %>
 
     <div class="shop-head">
-        <h1> <span><%= Angadi[0].Product_name%></span> is currently available in </h1>
+        <h1> <span><%= Angadi[0].Product_name%></span>is currently available in </h1>
     </div>
 
     <div class="shop-container">
@@ -16,6 +16,7 @@
                     <th>Shop loc</th>
                     <th>Phone</th>
                     <th>Email</th>
+                    <th class="green">Price</th>
                 </tr>
 
                 <% Angadi.forEach(shop => { %>
@@ -36,6 +37,10 @@
                         <td>
                             <%=shop.Email%>
                         </td>
+                        <td>
+                            ₹
+                            <%=shop.Price%> /-
+                        </td>
                     </tr>
 
                     <%})%>
@@ -43,6 +48,8 @@
             </table>
 
         </div>
+
+
 
         <div class="shop-btn-div btn">
             <a href="/"> <button>Home

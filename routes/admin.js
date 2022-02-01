@@ -7,7 +7,7 @@ const db = new sqlite.Database('./SHOP-DB')
 const router = express.Router();
 const oneDay = 1000 * 60 * 60 * 24; //cookie for one day session
 var session
-    //session middleware
+
 router.use(sessions({
     secret: "MulleMadarChodBc",
     saveUninitialized: true,

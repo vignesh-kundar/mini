@@ -15,8 +15,8 @@ router.get("/:id", (req, res) => {
     console.log(pid, "is the sent pid")
 
     db.all(`SELECT *
-    FROM SHOP s
-    where s.Shop_id in ( select p.Shop_id from PRODUCTS p where p.Product_id = ? );`, [pid],
+    FROM SHOP s , PRODUCTS p
+    where  s.Shop_id = p.Shop_id and s.Shop_id in ( select p.Shop_id from PRODUCTS p where p.Product_id = ? );`, [pid],
         (err, rows) => {
             if (err) console.log(err);
             else {
@@ -64,7 +64,7 @@ router.post("/add", (req, res) => {
     ($name ,$loc ,$phone ,$email)`, shop,
         (err) => {
             if (err) res.render('error', { Error: err });
-            else res.redirect("/")
+            else res.redirect("/admin")
         })
 
 });

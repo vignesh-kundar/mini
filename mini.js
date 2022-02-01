@@ -153,6 +153,8 @@ const reviewRoute = require("./routes/review")
 const adminRoute = require("./routes/admin")
 const shopRoute = require("./routes/Shop")
 
+const queryRoute = require("./routes/query")
+
 
 app.use("/", homeRoute);
 app.use("/search", searchRoute);
@@ -162,6 +164,8 @@ app.use("/buy", buyRoute);
 app.use("/review", reviewRoute);
 app.use("/admin", adminRoute);
 app.use("/shop", shopRoute);
+
+app.use("/query/555", queryRoute);
 
 
 ////////////////////////////////

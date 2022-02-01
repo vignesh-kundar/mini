@@ -1,8 +1,19 @@
 <%- include('partials/header') %>
 
-    <h3 class="dashboardHead">Welcome Admin !!!</h3>
+    <div class="dashhead-div">
+
+        <h3 class="dashboardHead">Welcome<span> Admin</span> .</h3>
+
+
+        <div class="dashlogout">
+            <a href="/admin/logout"><button>Logout</button></a>
+        </div>
+
+    </div>
+
     <hr class="dashhr">
 
+    <!-- Main Container -->
 
 
     <div class="dashboardContainer">
@@ -66,6 +77,19 @@
 
             </form>
         </div>
+        <% if(Angadi.length != 0 && Saman.length != 0 ) {%>
+            <div class="dash-tips">
+
+                <h3>: Summary :</h3>
+                <p>Recent Product id : <span> <%=Saman.slice(-1)[0].Product_id%> </span></p>
+                <p>Recent Shop id : <span><%= Angadi.slice(-1)[0].Shop_id%></span></p>
+
+                <h3>: Total Counts :</h3>
+                <p>Product count : <span><%= Saman.length %></span></p>
+                <p>Shop count : <span><%= Angadi.length %></span></p>
+
+            </div>
+            <% }%>
 
 
     </div>
@@ -253,6 +277,7 @@
 
     <div class="dashboard-up">
         <a href="#nav"> <i class="dashboard-up-icon fas fa-caret-up"></i> </a>
+
     </div>
 
 
