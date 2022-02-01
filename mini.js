@@ -165,7 +165,7 @@ app.use("/review", reviewRoute);
 app.use("/admin", adminRoute);
 app.use("/shop", shopRoute);
 
-app.use("/query/555", queryRoute);
+app.use("/query/labrador", queryRoute);
 
 
 ////////////////////////////////

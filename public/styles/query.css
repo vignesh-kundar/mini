@@ -1,34 +1,89 @@
-.query-head {
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-}
-
-.query-head p {
-    color: rgba(255, 255, 255, 0.524);
-}
-
-
-/*----------------------------*/
-
-
-/*queries*/
-
-.query-insert textarea {
-    border: 5px solid royalblue;
-    background-color: transparent;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 1.5rem;
-    padding: 10px;
-}
-
-.query-insert textarea:focus {
-    outline: none;
-}
-
-.query-insert {
-    display: flex;
-    justify-content: center;
-    margin: 80px 0;
-}
+                .query-head {
+                    display: block;
+                    margin: 20px auto;
+                    text-align: center;
+                }
+                
+                .query-head p {
+                    color: rgba(255, 255, 255, 0.524);
+                }
+                /*----------------------------*/
+                
+                .Q-container {
+                    display: flex;
+                    justify-content: center;
+                }
+                /*queries*/
+                
+                .query-insert textarea {
+                    border: 5px solid royalblue;
+                    background-color: transparent;
+                    border-radius: 10px;
+                    color: #fff;
+                    font-size: 1.5rem;
+                    padding: 10px;
+                }
+                
+                .query-insert textarea:focus {
+                    outline: none;
+                }
+                
+                .query-insert {
+                    display: flex;
+                    justify-content: center;
+                    margin: 80px 20px;
+                }
+                
+                .Q-btn {
+                    text-align: center;
+                }
+                
+                .Q-btn>button,
+                .Q-btn>a>button {
+                    padding: 15px 20px;
+                    background-color: royalblue;
+                    border-style: none;
+                    border-radius: 10px;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: all 0.5s;
+                }
+                
+                .Q-btn>button:hover,
+                .Q-btn>a>button:hover {
+                    padding: 15px 25px;
+                    transition: all 0.5s ease-in-out;
+                }
+                /*q-output*/
+                
+                .Q-output {
+                    margin: 80px 20px;
+                    margin-bottom: 5px;
+                    height: 42vh;
+                    width: 38vw;
+                    border: 5px solid rgba(255, 255, 255, 0.319);
+                    border-radius: 10px;
+                    overflow-y: scroll;
+                }
+                
+                .Q-output::-webkit-scrollbar {
+                    width: 5px;
+                }
+                
+                .Q-output::-webkit-scrollbar-thumb {
+                    background-color: royalblue;
+                    border-radius: 20px;
+                }
+                
+                .Q-output>h3 {
+                    color: rgba(255, 255, 255, 0.250);
+                    padding: 5px;
+                    font-size: 1.5rem;
+                    font-weight: normal;
+                    font-family: Monospace;
+                }
+                
+                .Q-output>p {
+                    color: #fff;
+                    padding: 10px;
+                }

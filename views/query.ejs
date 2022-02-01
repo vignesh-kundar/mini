@@ -1,20 +1,48 @@
 <%- include('partials/header')%>
 
     <div class="query-head">
-        <h2 class="white">Query-div</h2>
-        <p>under development -v Beta 1.0</p>
+        <h2 class="white"> Run Your Query</h2>
+        <p>under development -v Beta 1.1</p>
+    </div>
+
+    <div class="Q-container">
+        <div class="query-insert">
+
+            <form action="/query/labrador" method="post">
+                <!-- <label for="query">Review of W3Schools:</label> -->
+                <textarea name="query" rows="8" cols="48" placeholder="Enter Query"></textarea>
+
+                <div class="Q-btn">
+                    <button type="submit">Run</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="Q-op-container">
+
+            <div class="Q-output">
+                <h3>Output</h3>
+
+                <% Response.forEach((Res) => { %>
+                    <p>
+                        <%=JSON.stringify(Res)%>
+                    </p>
+                    <% }) %>
+
+            </div>
+
+            <div class="Q-btn">
+                <a href="/query/labrador">
+                    <button>Refresh</button>
+                </a>
+            </div>
+
+        </div>
+
     </div>
 
 
-    <form action="/query/555" method="post">
-
-        <div class="query-insert">
-            <!-- <label for="query">Review of W3Schools:</label> -->
-            <textarea name="comment" rows="5" cols="50" placeholder="Enter Query"></textarea>
-        </div>
-
-
-
-    </form>
 
     <%- include('partials/footer')%>
