@@ -58,14 +58,14 @@ db.serialize(() => {
         })
 
     db.run(`create table if not EXISTS PRODUCTS (
-        Product_id integer primary key AUTOINCREMENT,
+        Product_id integer,
         Shop_id integer,
         Product_name varchar(30),
         Price smallmoney,
         Stocks integer,
         Type varchar(30),
         Brand varchar(30),
-        UNIQUE (Product_id , Shop_id ),
+        Primary key (Product_id , Shop_id ),
         FOREIGN KEY (Shop_id) REFERENCES SHOP (Shop_id) ON DELETE CASCADE
 
     )`, (err) => {

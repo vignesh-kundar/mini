@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
         //get product list 
     let list = [];
 
-    db.all(`select * from PRODUCTS`,
+    db.all(`select * from PRODUCTS group by Product_id;`,
         (err, rows) => {
             if (err) res.send(err);
             else {
