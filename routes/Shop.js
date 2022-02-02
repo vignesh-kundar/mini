@@ -16,7 +16,9 @@ router.get("/:id", (req, res) => {
 
     db.all(`SELECT *
     FROM SHOP s , PRODUCTS p
-    where  s.Shop_id = p.Shop_id and s.Shop_id in ( select p.Shop_id from PRODUCTS p where p.Product_id = ? );`, [pid],
+    where  s.Shop_id = p.Shop_id and s.Shop_id in
+    ( select p.Shop_id from PRODUCTS p where p.Product_id = ? )
+    order by Shop_name ASC;`, [pid],
         (err, rows) => {
             if (err) console.log(err);
             else {

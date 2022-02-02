@@ -35,32 +35,36 @@
             <h3 class="white product-stocks">Stocks available :
                 <%=Product.Stocks%>
             </h3>
-            <h3 class="white product-review">Reviews : </h3>
+            <% if (Review.length == 0) {%>
+                <h3 class="white product-review">No Reviews Yet </h3>
 
-            <div class="product-review-div">
+                <% } else { %>
+                    <h3 class="white product-review">Reviews : </h3>
+                    <% } %>
+                        <div class="product-review-div">
 
-                <% Review.forEach(review => { %>
+                            <% Review.forEach(review => { %>
 
-                    <div class="review-data-div">
+                                <div class="review-data-div">
 
-                        <div class="review-cust-div">
-                            <h4 class="review-customer white">
-                                <%=review.Cust_name%>
-                            </h4>
-                            <p class="white review-ratings">Ratings :
-                                <%=review.Ratings%>/10</p>
+                                    <div class="review-cust-div">
+                                        <h4 class="review-customer white">
+                                            <%=review.Cust_name%>
+                                        </h4>
+                                        <p class="white review-ratings">Ratings :
+                                            <%=review.Ratings%>/10</p>
+                                    </div>
+
+                                    <div class="review-data">
+                                        <p class="review-data-para white">
+                                            <%=review.Comments%>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <%})%>
+
                         </div>
-
-                        <div class="review-data">
-                            <p class="review-data-para white">
-                                <%=review.Comments%>
-                            </p>
-                        </div>
-                    </div>
-
-                    <%})%>
-
-            </div>
 
 
 

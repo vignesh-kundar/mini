@@ -19,6 +19,8 @@ router.post('/', (req, res) => {
 
     const Q = req.body.query;
 
+    console.log("Entered Query : " + Q);
+
 
     db.all(Q, [], (err, rows) => {
         if (err) list[0] = err;
