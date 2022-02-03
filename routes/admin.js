@@ -52,7 +52,7 @@ router.get('/', (req, res) => {
                         products[j++] = rev;
                     })
                 }
-                console.log(products);
+                // console.log(products);
             })
 
             db.all(`SELECT * FROM ORDERS`, (err, row) => {
@@ -66,7 +66,7 @@ router.get('/', (req, res) => {
                         orders[j++] = rev;
                     })
                 }
-                console.log(products);
+                // console.log(products);
             })
 
         }); //end of serialize :)
@@ -77,11 +77,6 @@ router.get('/', (req, res) => {
         db.close((err) => {
             err ? console.log(err) : res.render("dashboard", { Angadi: shops, Saman: products, Orders: orders });
         });
-
-
-
-
-
 
     } else {
         res.render("admin");
@@ -129,7 +124,7 @@ router.post("/", (req, res) => {
                         products[j++] = rev;
                     })
                 }
-                console.log(products);
+                //  console.log(products);
             })
 
             db.all(`SELECT * FROM ORDERS`, (err, row) => {
@@ -143,7 +138,7 @@ router.post("/", (req, res) => {
                         orders[j++] = rev;
                     })
                 }
-                console.log(products);
+                //  console.log(products);
             })
 
         }); //end of serialize :)

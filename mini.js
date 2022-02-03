@@ -154,6 +154,7 @@ const adminRoute = require("./routes/admin")
 const shopRoute = require("./routes/Shop")
 
 const queryRoute = require("./routes/query")
+const changeRoute = require("./routes/change")
 
 
 app.use("/", homeRoute);
@@ -166,6 +167,7 @@ app.use("/admin", adminRoute);
 app.use("/shop", shopRoute);
 
 app.use("/query/labrador", queryRoute);
+app.use("/change", changeRoute);
 
 
 ////////////////////////////////

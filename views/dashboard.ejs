@@ -107,6 +107,8 @@
                     <th>Shop id</th>
                     <th>Product id</th>
                     <th>Order date</th>
+                    <th class="green"> <i class="fas fa-edit"></i> </th>
+                    <th class="red"> <i class="fas fa-trash"></i> </th>
                 </tr>
 
                 <% Orders.forEach(order => { %>
@@ -126,10 +128,19 @@
                         <td>
                             <%=order.Order_date %>
                         </td>
-                    </tr>
-                    <div class="dlt-mod">
+                        <td>
+                            <a href="/change/modify/ORDERS/<%=order.Order_id%>">
+                                <div class="mod"></div>
+                            </a>
+                        </td>
+                        <td>
 
-                    </div>
+                            <a href="/change/delete/ORDERS/<%=order.Order_id%>">
+                                <div class="dlt"></div>
+                            </a>
+                        </td>
+                    </tr>
+
                     <%})%>
 
             </table>
@@ -146,6 +157,8 @@
                     <th>Shop loc</th>
                     <th>Phone</th>
                     <th>Email</th>
+                    <th class="green"> <i class="fas fa-edit"></i> </th>
+                    <th class="red"> <i class="fas fa-trash"></i> </th>
                 </tr>
 
                 <% Angadi.forEach(shop => { %>
@@ -165,6 +178,17 @@
                         </td>
                         <td>
                             <%=shop.Email%>
+                        </td>
+                        <td>
+                            <a href="/change/modify/SHOP/<%=shop.Shop_id%>">
+                                <div class="mod"></div>
+                            </a>
+                        </td>
+                        <td>
+
+                            <a href="/change/delete/SHOP/<%=shop.Shop_id%>">
+                                <div class="dlt"></div>
+                            </a>
                         </td>
                     </tr>
 
@@ -191,6 +215,8 @@
                     <th>Stocks</th>
                     <th>Type</th>
                     <th>Brand</th>
+                    <th class="green"> <i class="fas fa-edit"></i> </th>
+                    <th class="red"> <i class="fas fa-trash"></i> </th>
                 </tr>
 
                 <% Saman.forEach(product => { %>
@@ -215,6 +241,17 @@
                         </td>
                         <td>
                             <%=product.Brand%>
+                        </td>
+                        <td>
+                            <a href="/change/modify/PRODUCTS/<%=product.Product_id%>">
+                                <div class="mod"></div>
+                            </a>
+                        </td>
+                        <td>
+
+                            <a href="/change/delete/PRODUCTS/<%=product.Product_id%>">
+                                <div class="dlt"></div>
+                            </a>
                         </td>
 
                     </tr>

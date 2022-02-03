@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+    <div class="modify-head query-head">
+        <h2 class="white">Modify Table</h2>
+        <p>beta version 1.0</p>
+    </div>
+    <div class="modify-container">
+
+        <div class="insertContainer " id="shop-div">
+            <h2 class="insert-name">Modify the <span>SHOP</span> Content</h2>
+
+
+            <% List.forEach( shop => { %>
+
+
+                <form action="/change/modify/SHOP/<%=shop.Shop_id%>" method="post">
+
+                    <ul class="insertlist">
+                        <!-- <li class="insert-li" id="mod-shop-1"> <label for="mod-shop-1" class="lbl"> Shop id :</label> <input placeholder="Shop id" name="id" type="text" class="insert-input" value="<%=shop.Shop_id%>"></li> -->
+                        <li class="insert-li" id="mod-shop-2"> <label for="mod-shop-2" class="lbl"> Shop name :</label> <input required placeholder="Shop name" name="Shop_name" type="text" class="insert-input" value="<%=shop.Shop_name%>"> </li>
+                        <li class="insert-li" id="mod-shop-3"> <label for="mod-shop-3" class="lbl"> Shop location :</label> <input required placeholder="Shop loc" name="Shop_loc" type="text" class="insert-input" value="<%=shop.Shop_loc%>"> </li>
+                        <li class="insert-li" id="mod-shop-4"> <label for="mod-shop-4" class="lbl"> Shop phone :</label> <input required placeholder="Shop phone" name="Shop_phone" type="text" class="insert-input" value="<%=shop.Phone%>"> </li>
+                        <li class="insert-li" id="mod-shop-5"> <label for="mod-shop-5" class="lbl"> Shop email :</label> <input required placeholder="Shop email" name="Shop_email" type="text" class="insert-input" value="<%=shop.Email%>"> </li>
+                    </ul>
+
+                    <div class="insert-btn-div">
+                        <button class="insert-submit" type="submit">Update</button>
+                    </div>
+
+                </form>
+
+                <% }) %>
+
+        </div>
+
+    </div>
+
+
+    <%- include('partials/footer') %>

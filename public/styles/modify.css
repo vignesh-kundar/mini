@@ -1,0 +1,18 @@
+.modify-container {
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+}
+
+.insert-btn-div:hover {
+    transition: all 0.5s;
+    padding: 10px 80px;
+}
+
+.insert-name>span {
+    color: royalblue;
+}
+
+.lbl {
+    color: rgba(255, 255, 255, 0.500);
+}

@@ -86,4 +86,5 @@
                 .Q-output>p {
                     color: #fff;
                     padding: 10px;
+                    word-wrap: break-word;
                 }

@@ -19,7 +19,7 @@ router.get("/:buynowId", (req, res) => {
         if (err) throw err;
         else {
             product = result[0];
-            console.log(product);
+            //console.log(product);
         }
     })
 
