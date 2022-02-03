@@ -107,6 +107,10 @@
         padding: 10px;
     }
     
+    .buy-review-insert ul li textarea:focus {
+        outline: none;
+    }
+    
     .addDisplay {
         display: flex;
     }

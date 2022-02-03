@@ -7,10 +7,25 @@ const router = express.Router();
 router.get("/modify/:table/:id", (req, res) => {
     let list = []
     const db = new sqlite.Database('./SHOP-DB');
-    sql = `select * from ${req.params.table} where Shop_id = ${req.params.id}`
+
+
+
+    switch (req.params.table) {
+        case "SHOP":
+            sql = `select * from ${req.params.table} where Shop_id = ${req.params.id}`
+            break;
+        case "PRODUCTS":
+            sql = `select * from ${req.params.table} where Product_id = ${req.params.id}`
+            break;
+        default:
+            sql = undefined;
+    }
+
+
+    console.log(sql);
     db.all(sql, [], (err, row) => {
         err ? console.log(err) : list[0] = row[0];
-        console.log(list.Shop_id);
+        console.log(list);
     })
 
     db.close((err) => {
@@ -29,18 +44,34 @@ router.post("/modify/:table/:id", (req, res) => {
     // SET column1 = value1, column2 = value2, ...
     // WHERE condition;
 
-    sql = `UPDATE SHOP
-            SET Shop_name = "${req.body.Shop_name}",
-            Shop_loc = "${req.body.Shop_loc}",
-            Phone = ${req.body.Shop_phone},
-            Email = "${req.body.Shop_email}"
-            WHERE Shop_id = ${req.params.id} ;`
+    switch (req.params.table) {
+
+        case "SHOP":
+            sql = `UPDATE SHOP
+SET Shop_name = "${req.body.Shop_name}",
+Shop_loc = "${req.body.Shop_loc}",
+Phone = ${req.body.Shop_phone},
+Email = "${req.body.Shop_email}"
+WHERE Shop_id = ${req.params.id} ;`
+            break;
+        case "PRODUCTS":
+            sql = `UPDATE PRODUCTS
+SET Product_name = "${req.body.prdt_name}",
+Price = "${req.body.prdt_price}",
+Stocks = ${req.body.prdt_stocks},
+Type = "${req.body.prdt_type}",
+Brand = "${req.body.prdt_brand}"
+WHERE Product_id = ${req.params.id};`
+
+    }
+
+
 
     console.log("SQL statement :" + sql)
 
     db.run(sql, [], (err) => {
-        err ? console.error(err) : console.log("<=Updated SHOP table , with id " + req.params.id + "=>")
-    })
+        err ? console.error(err) : console.log(`<=Updated ${req.params.table} table , with id ${req.params.id} =>`);
+    });
 
     console.log(req.params.table + " " + req.params.id);
 

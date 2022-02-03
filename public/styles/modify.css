@@ -15,4 +15,9 @@
 
 .lbl {
     color: rgba(255, 255, 255, 0.500);
+    /* float: left; */
+}
+
+.mod-list>ul>li>input {
+    float: right;
 }

@@ -1,39 +1,77 @@
 <%- include('partials/header') %>
 
     <div class="modify-head query-head">
-        <h2 class="white">Modify Table</h2>
+        <h2 class="white">Modify Table
+        </h2>
         <p>beta version 1.0</p>
     </div>
-    <div class="modify-container">
 
-        <div class="insertContainer " id="shop-div">
-            <h2 class="insert-name">Modify the <span>SHOP</span> Content</h2>
+    <% if(Table === "SHOP"){ %>
 
+        <div class="modify-container">
+            <div class="insertContainer " id="shop-div">
+                <h2 class="insert-name">Modify the <span>SHOP</span> Content</h2>
+                <% List.forEach( shop => { %>
+                    <form action="/change/modify/SHOP/<%=shop.Shop_id%>" method="post">
 
-            <% List.forEach( shop => { %>
+                        <ul class="insertlist mod-list">
+                            <!-- <li class="insert-li" id="mod-shop-1"> <label for="mod-shop-1" class="lbl"> Shop id :</label> <input placeholder="Shop id" name="id" type="text" class="insert-input" value="<%=shop.Shop_id%>"></li> -->
+                            <li class="insert-li" id="mod-shop-2"> <label for="mod-shop-2" class="lbl"> Shop name :</label> <input required placeholder="Shop name" name="Shop_name" type="text" class="insert-input" value="<%=shop.Shop_name%>"> </li>
+                            <li class="insert-li" id="mod-shop-3"> <label for="mod-shop-3" class="lbl"> Shop location :</label> <input required placeholder="Shop loc" name="Shop_loc" type="text" class="insert-input" value="<%=shop.Shop_loc%>"> </li>
+                            <li class="insert-li" id="mod-shop-4"> <label for="mod-shop-4" class="lbl"> Shop phone :</label> <input required placeholder="Shop phone" name="Shop_phone" type="text" class="insert-input" value="<%=shop.Phone%>"> </li>
+                            <li class="insert-li" id="mod-shop-5"> <label for="mod-shop-5" class="lbl"> Shop email :</label> <input required placeholder="Shop email" name="Shop_email" type="text" class="insert-input" value="<%=shop.Email%>"> </li>
+                        </ul>
 
+                        <div class="insert-btn-div">
+                            <button class="insert-submit" type="submit">Update</button>
+                        </div>
 
-                <form action="/change/modify/SHOP/<%=shop.Shop_id%>" method="post">
-
-                    <ul class="insertlist">
-                        <!-- <li class="insert-li" id="mod-shop-1"> <label for="mod-shop-1" class="lbl"> Shop id :</label> <input placeholder="Shop id" name="id" type="text" class="insert-input" value="<%=shop.Shop_id%>"></li> -->
-                        <li class="insert-li" id="mod-shop-2"> <label for="mod-shop-2" class="lbl"> Shop name :</label> <input required placeholder="Shop name" name="Shop_name" type="text" class="insert-input" value="<%=shop.Shop_name%>"> </li>
-                        <li class="insert-li" id="mod-shop-3"> <label for="mod-shop-3" class="lbl"> Shop location :</label> <input required placeholder="Shop loc" name="Shop_loc" type="text" class="insert-input" value="<%=shop.Shop_loc%>"> </li>
-                        <li class="insert-li" id="mod-shop-4"> <label for="mod-shop-4" class="lbl"> Shop phone :</label> <input required placeholder="Shop phone" name="Shop_phone" type="text" class="insert-input" value="<%=shop.Phone%>"> </li>
-                        <li class="insert-li" id="mod-shop-5"> <label for="mod-shop-5" class="lbl"> Shop email :</label> <input required placeholder="Shop email" name="Shop_email" type="text" class="insert-input" value="<%=shop.Email%>"> </li>
-                    </ul>
-
-                    <div class="insert-btn-div">
-                        <button class="insert-submit" type="submit">Update</button>
-                    </div>
-
-                </form>
-
-                <% }) %>
-
+                    </form>
+                    <% }) %>
+            </div>
         </div>
 
-    </div>
+        <% } %>
+
+            <% if(Table === "PRODUCTS"){ %>
+
+                <div class="modify-container">
+
+                    <div class="insertContainer" id="product-div">
+                        <h2 class="insert-name">Insert new Product</h2>
+                        <% List.forEach(product=>{ %>
+                            <form action="/change/modify/PRODUCTS/<%=product.Product_id%>" method="post">
+
+                                <ul class="insertlist mod-list">
+                                    <!-- <li class="insert-li" id="mod-prdt-1">
+                                <lable for="mod-prdt=1" class="lbl"> Product id : </label> <input required placeholder="Product id" name="id" type="number" class="insert-input"> </li> -->
+                                    <li class="insert-li" id="mod-prdt-2">
+                                        <lable for="mod-prdt=2" class="lbl"> Product Shopid : </label> <input required placeholder="Shop id" name="prdt_shopId" type="number" class="insert-input" value="<%=product.Shop_id%>"> </li>
+                                    <li class="insert-li" id="mod-prdt-3">
+                                        <lable for="mod-prdt=3" class="lbl"> Product name : </label> <input required placeholder="Product name" name="prdt_name" type="text" class="insert-input" value="<%=product.Product_name%>"> </li>
+                                    <li class="insert-li" id="mod-prdt-4">
+                                        <lable for="mod-prdt=4" class="lbl"> Product price : </label> <input required placeholder="Product price" name="prdt_price" type="number" class="insert-input" value="<%=product.Price%>"> </li>
+                                    <li class="insert-li" id="mod-prdt-5">
+                                        <lable for="mod-prdt=5" class="lbl"> Product Type : </label> <input required placeholder="Product type" name="prdt_type" type="text" class="insert-input" value="<%=product.Type%>"> </li>
+                                    <li class="insert-li" id="mod-prdt-6">
+                                        <lable for="mod-prdt=6" class="lbl"> Product stocks : </label> <input required placeholder="Stocks" name="prdt_stocks" type="number" class="insert-input" value="<%=product.Stocks%>"> </li>
+                                    <li class="insert-li" id="mod-prdt-7">
+                                        <lable for="mod-prdt=7" class="lbl"> Product Brand : </label> <input required placeholder="Brand" name="prdt_brand" type="text" class="insert-input" value="<%=product.Brand%>"> </li>
+                                </ul>
+
+                                <div class="insert-btn-div">
+                                    <button class="insert-submit" type="submit">Submit</button>
+                                </div>
+
+                            </form>
+                            <% })%>
+                    </div>
+
+                </div>
+
+                <% } %>
 
 
-    <%- include('partials/footer') %>
+
+
+                    <%- include('partials/footer') %>
