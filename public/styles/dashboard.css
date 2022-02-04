@@ -137,6 +137,37 @@
     margin-right: 50px;
 }
 
+
+/* drop-down-begin */
+
+.prdt-drop-div {
+    width: 20vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.insertContainer .insertlist li select,
+.prdt-drop-div label {
+    margin: 10px auto;
+    font-size: 1.25rem;
+    background-color: transparent;
+    width: 10vw;
+    border: none;
+    color: rgba(253, 253, 253, 0.435);
+}
+
+.insertContainer .insertlist li select:focus {
+    outline: none;
+}
+
+.insertContainer .insertlist li select option {
+    background-color: #171717;
+    color: #fff;
+    padding: 20px;
+    border: 1px solid royalblue;
+    box-shadow: 2px 2px 5px #fff;
+}
+
 .insert-submit {
     background-color: royalblue;
     padding: 10px;
@@ -150,6 +181,9 @@
     text-align: center;
     cursor: pointer;
 }
+
+
+/* drop-down-end*/
 
 
 /* View only */

@@ -67,9 +67,24 @@
                     <li class="insert-li"><input required placeholder="Shop id" name="shopId" type="number" class="insert-input"> </li>
                     <li class="insert-li"><input required placeholder="Product name" name="name" type="text" class="insert-input"> </li>
                     <li class="insert-li"><input required placeholder="Product price" name="price" type="number" class="insert-input"> </li>
-                    <li class="insert-li"><input required placeholder="Product type" name="type" type="text" class="insert-input"> </li>
                     <li class="insert-li"><input required placeholder="Stocks" name="stocks" type="number" class="insert-input"> </li>
                     <li class="insert-li"><input required placeholder="Brand" name="brand" type="text" class="insert-input"> </li>
+                    <li class="insert-li">
+
+                        <div class="prdt-drop-div">
+                            <label for="prdt-types">Product Type :</label>
+                            <select name="type" id="prdt-types" placeholder="Product Type">
+                                <% pType.forEach( type=> { %>
+                                <option value="<%=type%>"><%=type%></option>
+                                <% } ) %>
+                                <!-- <option value="saab">Saab</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option> -->
+                              </select>
+                        </div>
+
+                        <!-- <input required placeholder="Product type" name="type" type="text" class="insert-input"> -->
+                    </li>
                 </ul>
                 <div class="insert-btn-div">
                     <button class="insert-submit" type="submit">Submit</button>

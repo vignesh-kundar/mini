@@ -15,6 +15,14 @@ router.use(sessions({
     resave: false
 }));
 
+const foods = ["food-ramen", "food-sopes", "dogfood-1", "dogfood-2"];
+const electronics = ["lgtv-1", "headphones-1", "graphicscard-950", "graphicscard-2080"];
+const watches = ["watch-analog1", "watch-analog2", "watch-analog3", "watch-smart"];
+const chapri = ["skincare-1", "skincare-2", "shoe-1", "glases-sun"];
+
+const productType = [...foods, ...electronics, ...watches, ...chapri];
+
+console.log("Product Types are : " + productType);
 
 router.get('/', (req, res) => {
 
@@ -75,7 +83,7 @@ router.get('/', (req, res) => {
 
 
         db.close((err) => {
-            err ? console.log(err) : res.render("dashboard", { Angadi: shops, Saman: products, Orders: orders });
+            err ? console.log(err) : res.render("dashboard", { Angadi: shops, Saman: products, Orders: orders, pType: productType });
         });
 
     } else {
@@ -147,7 +155,7 @@ router.post("/", (req, res) => {
 
 
         db.close((err) => {
-            err ? console.log(err) : res.render("dashboard", { Angadi: shops, Saman: products, Orders: orders });
+            err ? console.log(err) : res.render("dashboard", { Angadi: shops, Saman: products, Orders: orders, pType: productType });
         });
 
     }
