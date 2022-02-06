@@ -54,6 +54,8 @@ router.post("/", (req, res) => {
 
     console.log(req.body.qid);
 
+    console.log("== select ==" + req.body.type);
+
     product = {
         $id: req.body.id,
         $shop_id: req.body.shopId,
