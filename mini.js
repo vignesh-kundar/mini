@@ -173,7 +173,9 @@ app.use("/change", changeRoute);
 ////////////////////////////////
 
 
-
+app.get("/forgot-password", (req, res) => {
+    res.render("forget-password");
+})
 
 app.get('/about', (req, res) => {
     res.render('about')
